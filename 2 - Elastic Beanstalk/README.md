@@ -71,5 +71,17 @@ Access you environment using the URL that is listed in the Elastic Beanstalk int
 Here is an example of using curl to fetch a list of users from the API:
 
 ```
-http://empirejs-workshop-dev.us-east-2.elasticbeanstalk.com/api/users
+curl http://empirejs-workshop-dev.us-east-2.elasticbeanstalk.com/api/users
 ```
+
+Or you can just enter the URL into your browser to check it:
+
+![EB create](./images/browser-json.png)
+
+6. Deploy a new version of the application:
+
+```
+eb deploy
+```
+
+Note that for any code changes to be reflected when the project being deployed is a Git repo the changes must be committed to the repo, because Elastic Beanstalk always deploys the most recent commit, never uncomitted changes.
