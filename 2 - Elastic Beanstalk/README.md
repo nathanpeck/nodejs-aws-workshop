@@ -2,23 +2,23 @@
 
 1. Navigate to the [list of IAM users on your AWS account](https://console.aws.amazon.com/iam/home#/users)
 
-![IAM home](./images/iam-home.png | width=50%)
+![IAM home](./images/iam-home.png)
 
 2. Click the "Add User" button and fill out the two fields as indicated then click "Next"
 
-![Create User](./images/create-user.png | width=50%)
+![Create User](./images/create-user.png)
 
 3. Attach permissions to the user by selecting "Attach existing policies directly" and selecting the "AdministratorAccess" policy, then click "Next"
 
-![Attach Permissions](./images/attach-permissions.png | width=50%)
+![Attach Permissions](./images/attach-permissions.png)
 
 4. Review the settings to ensure that they match, then click "Create User"
 
-![Review](./images/review.png | width=50%)
+![Review](./images/review.png)
 
 5. Click the "Download .csv" button to save the credentials for this user for future use.
 
-![Get Credentials](./images/get-credentials.png | width=50%)
+![Get Credentials](./images/get-credentials.png)
 
 ## Setup Elastic Beanstalk on the development instance
 
