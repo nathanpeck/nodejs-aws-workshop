@@ -1,79 +1,93 @@
 {
-  "users": [
+  "characters": [
     {
       "id": 1,
-      "username": "marceline",
       "name": "Marceline Abadeer",
-      "bio": "1000 year old vampire queen, musician"
+      "gender": "female",
+      "species": [
+        "human",
+        "demon",
+        "vampire"
+      ],
+      "occupations": [
+        "queen"
+      ],
+      "location": 1
     },
     {
       "id": 2,
-      "username": "finn",
       "name": "Finn 'the Human' Mertens",
-      "bio": "Adventurer and hero, last human, defender of good"
+      "gender": "male",
+      "species": [
+        "human"
+      ],
+      "occupations": [
+        "adventurer",
+        "hero"
+      ],
+      "location": 2
     },
     {
       "id": 3,
-      "username": "pb",
       "name": "Bonnibel Bubblegum",
-      "bio": "Scientist, bearer of candy power, ruler of the candy kingdom"
+      "gender": "female",
+      "species": [
+        "candy elemental"
+      ],
+      "occupations": [
+        "princess",
+        "scientist"
+      ],
+      "location": 3
     },
     {
       "id": 4,
-      "username": "jake",
       "name": "Jake the Dog",
-      "bio": "Former criminal, now magical dog adventurer, and father"
+      "gender": "male",
+      "species": [
+        "dog",
+        "shape-shifter"
+      ],
+      "occupations": [
+        "criminal",
+        "hero",
+        "adventurer",
+        "father"
+      ],
+      "location": 2
+    },
+    {
+      "id": 5,
+      "name": "BMO",
+      "gender": "genderless",
+      "species": [
+        "mo"
+      ],
+      "occupations": [
+        "video game console",
+        "computer",
+        "vcr",
+        "adventurer"
+      ],
+      "location": 2
     }
   ],
 
-  "threads": [
+  "locations": [
     {
       "id": 1,
-      "title": "What's up with the Lich?",
-      "createdBy": 4
+      "name": "The Nightosphere",
+      "description": "The demon world"
     },
     {
       "id": 2,
-      "title": "Party at the candy kingdom tomorrow",
-      "createdBy": 3
+      "name": "Tree Fort",
+      "description": "Home of Finn, Jake, and BMO"
     },
     {
       "id": 3,
-      "title": "In search of a new guitar",
-      "createdBy": 1
-    }
-  ],
-
-  "posts": [
-    {
-      "thread": 1,
-      "text": "Has anyone checked on the lich recently?",
-      "user": 4
-    },
-    {
-      "thread": 1,
-      "text": "I'll stop by and see how he's doing tomorrow!",
-      "user": 2
-    },
-    {
-      "thread": 2,
-      "text": "Come party with the candy people tomorrow!",
-      "user": 3
-    },
-    {
-      "thread": 2,
-      "text": "Mathematical!",
-      "user": 2
-    },
-    {
-      "thread": 2,
-      "text": "I'll bring my guitar",
-      "user": 1
-    },
-    {
-      "thread": 3,
-      "text": "I need a new guitar to play the most savory licks in Ooo",
-      "user": 1
+      "name": "Candy Kingdom",
+      "description": "Kingdom made up of and populated by candy people"
     }
   ]
 }
