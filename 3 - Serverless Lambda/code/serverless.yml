@@ -1,0 +1,112 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: code
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+
+functions:
+
+  apiRoot:
+    handler: handler.apiRoot
+    events:
+      - http:
+          path: api/
+          method: get
+
+  characters:
+    handler: handler.characters
+    events:
+      - http:
+          path: api/characters
+          method: get
+
+  characterById:
+    handler: handler.characterById
+    events:
+      - http:
+          path: api/characters/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+
+  locations:
+    handler: handler.locations
+    events:
+      - http:
+          path: api/locations
+          method: get
+
+  locationById:
+    handler: handler.locationById
+    events:
+      - http:
+          path: api/locations/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+
+  charactersByLocation:
+    handler: handler.charactersByLocation
+    events:
+      - http:
+          path: api/characters/by-location/{locationId}
+          method: get
+          request:
+            parameters:
+              paths:
+                locationId: true
+
+  charactersByGender:
+    handler: handler.charactersByGender
+    events:
+      - http:
+          path: api/characters/by-gender/{gender}
+          method: get
+          request:
+            parameters:
+              paths:
+                gender: true
+
+  charactersBySpecies:
+    handler: handler.charactersBySpecies
+    events:
+      - http:
+          path: api/characters/by-species/{species}
+          method: get
+          request:
+            parameters:
+              paths:
+                species: true
+
+  charactersByOccupation:
+    handler: handler.charactersByOccupation
+    events:
+      - http:
+          path: api/characters/by-occupation/{occupation}
+          method: get
+          request:
+            parameters:
+              paths:
+                occupation: true
+
+
+
