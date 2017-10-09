@@ -56,6 +56,10 @@ And to see how HTTP traffic gets to your Lambda functions you should check the [
 
 ![api gateway](./images/api-gateway.png)
 
+&nbsp;
+
+&nbsp;
+
 ## 5. Try modifying a function
 
 You can modify any function, and redeploy by once again running:
