@@ -4,7 +4,11 @@ First, you'll need to select a region. I recommend using `us-east-2` (Ohio) sinc
 
 ![IAM home](./images/region.png)
 
-Go to the EC2 Dashboard and click on Key Pairs in the left menu under Network & Security. Click Create Key Pair, provide a name (can be anything, make it something memorable) when prompted, and click Create. Once created, the private key in the form of .pem file will be automatically downloaded.
+Go to the [EC2 Dashboard](https://console.aws.amazon.com/ec2/home?region=us-east-1#KeyPairs:sort=keyName) and click on Key Pairs in the left menu under Network & Security. Click "Create Key Pair", provide a name (can be anything, make it something memorable) when prompted, and click Create. 
+
+![IAM home](./images/create-keypair.png)
+
+Once created, the private key in the form of .pem file will be automatically downloaded.
 
 &nbsp;
 
