@@ -120,9 +120,7 @@ This may take a few minutes, while it creates a new private networking stack, an
 
 Once the deployment completes you should open [the CloudFormation dashboard](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) to check the outputs of your newly created CloudFormation stack, as well as [the EC2 Container Service dashboard](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters) where you can see your new cluster.
 
-You should select the cluster stack and view the "Outputs" tab, as the next step will require a value from the outputs of this stack:
-
-![cloudformation outputs](/images/cluster-outputs.png)
+You should select the cluster stack and view the "Outputs" tab, as the next step will require a value from the outputs of this stack.
 
 &nbsp;
 
@@ -131,6 +129,10 @@ You should select the cluster stack and view the "Outputs" tab, as the next step
 ## 4. Launch your containers as services
 
 To launch the docker containers that we created we will use another CloudFormation stack that automatically creates all the resources necessary to have an autoscaling service in an ECS cluster.
+
+Run the following commands, substituting in your own repository URI from step #2 and your own `ListenerArn` from the outputs of the CloudFormation stack run in step #3.
+
+![cloudformation outputs](/images/cluster-outputs-listener.png)
 
 ```
 aws cloudformation deploy \
@@ -153,7 +155,7 @@ aws cloudformation deploy \
                         ListenerArn=<the listener arn from your cluster stack outputs>
                         ImageUrl=<your locations repo URI>:v1 \
                         Path=/* \
-                        Priority=2 \
+                        Priority=2
 ```
 
 Example:
@@ -181,4 +183,29 @@ aws cloudformation deploy \
                         Path=/* \
                         Priority=2
 ```
+
+## 5. Test your new services
+
+Verify that the services are operating by using the URL that is in the outputs of the cluster's CloudFormation stack:
+
+![cloudformation outputs](/images/cluster-outputs-url.png)
+
+You can fetch a URL from the service API using your browser or curl. For example:
+
+```
+curl http://empir-publi-8p1lmmeypqd3-1841449678.us-east-2.elb.amazonaws.com/api/characters/by-species/human
+```
+
+&nbsp;
+
+&nbsp;
+
+## 6. Shutdown your services
+
+Go to the [CloudFormation dashboard on your account](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) and delete the stacks by selecting them, clicking the "Actions" menu and then clicking "Delete Stack"
+
+![cloudformation outputs](/images/delete-stack.png)
+
+Note that you must delete the two stacks `empirejs-service-locations` and `empirejs-service-characters` first. Then you can delete the `empirejs` stack, because there is a dependency between the cluster and the services that prevents the cluster from being deleted until all services have been deleted first.
+
 
