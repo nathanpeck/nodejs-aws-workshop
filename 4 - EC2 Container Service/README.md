@@ -101,7 +101,9 @@ docker push 209640446841.dkr.ecr.us-east-2.amazonaws.com/locations:v1
 Use the following command to launch an ECS cluster on your account:
 
 ```
-aws cloudformation deploy --stack-name cluster --template-file recipes/cluster.yml --region us-east-2
+aws cloudformation deploy --stack-name cluster --template-file recipes/cluster.yml --region us-east-2 --capabilities CAPABILITY_IAM
 ```
+
+This may take a few minutes, while it creates a new private networking stack, and launches a small cluster of two t2.micro instances on your account. To view the list of resources that is being created [check the cloudformation stack itself](recipes/cluster.yml).
 
 
