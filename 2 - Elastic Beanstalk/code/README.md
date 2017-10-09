@@ -8,6 +8,4 @@ Since Node.js programs run a single threaded event loop it is necessary to use t
 
 In this example `cluster` is used to spawn one worker process per core, and the processes share a single port using round robin load balancing built into Node.js
 
-We can use an Application Load Balancer to round robin requests across multiple servers, providing horizontal scaling.
-
-![Reference diagram of the basic node application deployment](../images/monolithic-no-container.png)
+We can use a load balancer to round robin requests across multiple servers, providing horizontal scaling.
