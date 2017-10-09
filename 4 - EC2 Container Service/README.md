@@ -184,6 +184,11 @@ aws cloudformation deploy \
                         Priority=2
 ```
 
+&nbsp;
+
+&nbsp;
+
+
 ## 5. Test your new services
 
 Verify that the services are operating by using the URL that is in the outputs of the cluster's CloudFormation stack:
@@ -228,4 +233,6 @@ Go to the [CloudFormation dashboard on your account](https://us-east-2.console.a
 
 Note that you must delete the two stacks `empirejs-service-locations` and `empirejs-service-characters` first. Then you can delete the `empirejs` stack, because there is a dependency between the cluster and the services that prevents the cluster from being deleted until all services have been deleted first.
 
+Finally go to the [repositories tab on the ECS dashboard](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/repositories), and select the docker repositories you created, and click "Delete Repository"
 
+![cloudformation outputs](images/delete-repository.png)
