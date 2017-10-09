@@ -50,7 +50,7 @@ Complete the wizard as shown below:
 
 ![EB init](./images/configure-elastic-beanstalk.png)
 
-The command line tool will automatically detect that this is a Node.js application.
+The command line tool will automatically detect that this is a Node.js application. Note that for consistency please make sure you choose the "us-east-2" region for deployment. At the time of writing this workshop "us-east-2" is #13 in the menu.
 
 &nbsp;
 
@@ -76,7 +76,7 @@ Note that it will take a few minutes to launch your first environment, since thi
 
 ## 6. Verify that your environment is up and running:
 
-Access you environment using the URL that is listed in the Elastic Beanstalk interface:
+Access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/application/overview?applicationName=empirejs-workshop):
 
 ![EB create](./images/environment-url.png)
 
