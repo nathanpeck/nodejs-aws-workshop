@@ -39,10 +39,6 @@ router.get('/api/characters/by-occupation/:occupation', function *() {
   this.body = db.characters.filter((character) => character.occupations.includes(occupation));
 });
 
-router.get('/api/', function *() {
-  this.body = 'API ready to receive requests';
-});
-
 router.get('/', function *() {
   this.body = 'Ready to receive requests';
 });
