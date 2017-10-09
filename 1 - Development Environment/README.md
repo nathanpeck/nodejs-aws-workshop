@@ -12,7 +12,6 @@ Once created, the private key in the form of .pem file will be automatically dow
 
 &nbsp;
 
-
 &nbsp;
 
 ## 2. Make the SSH key file ready to use
@@ -30,31 +29,47 @@ If you're on windows you'll need to download an SSH tool such as [PuTTY](http://
 
 &nbsp;
 
-
 &nbsp;
 
 ## 3. Start a development machine
 
 Go the [CloudFormation dashboard](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active), and click "Create Stack".
 
+![create stack](./images/create-stack.png)
+
+Select "Upload a template to Amazon S3" and choose the file "dev-machine.yml" in this directory of the repository, then click "Next"
+
+![dev machine](./images/dev-machine.png)
+
+Set a name for your stack, and select the key you created in step #1 in the dropdown menu, then click "Next"
+
+![stack parameters](./images/stack-parameters.png)
+
+Click Next again, select the checkbox next to "I acknowledge that AWS CloudFormation might create IAM resources." and then click "Create".
+
+![review stack](./images/review-stack.png)
+
+You will see a CloudFormation stack in the `CREATE_IN_PROGRESS` state.
+
+![review stack](./images/create-in-progress.png)
+
+Wait for the stack to transition to `CREATE_COMPLETE` and then check the "Outputs" tab of the stack details to get the IP address of your new remote dev machine:
+
+![stack output](./images/stack-output.png)
 
 
-2. Check the Outputs tab of the CloudFormation stack to find the IP address of the development machine
+&nbsp;
+
+&nbsp;
+
+
+## 4. Install Development Tools
 
 SSH into the development machine:
 
 ```
 ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 ```
-
-
-&nbsp;
-
-
-&nbsp;
-
-
-## 4. Install Development Tools
 
 Run the following commands on your development machine to setup the development tools needed to run this workshop:
 
@@ -69,7 +84,6 @@ node -e "console.log('Running Node.js ' + process.version)"
 
 
 &nbsp;
-
 
 &nbsp;
 
