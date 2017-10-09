@@ -4,5 +4,5 @@ WORKDIR /srv
 ADD . .
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8081
 CMD ["node", "server.js"]
