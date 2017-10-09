@@ -200,7 +200,23 @@ curl http://empir-publi-8p1lmmeypqd3-1841449678.us-east-2.elb.amazonaws.com/api/
 
 &nbsp;
 
-## 6. Shutdown your services
+## 6. Tour the EC2 Container Service dashboard
+
+If you view the AWS console for ECS you will see an overview of your cluster:
+
+![cloudformation outputs](images/cluster.png)
+
+Your services:
+
+![cloudformation outputs](images/services.png)
+
+And your tasks:
+
+![cloudformation outputs](images/tasks.png)
+
+From this dashboard you can modify a service to increase the number of tasks that it is running, or you can shutdown tasks, instances, or even entire services.
+
+## 7. Shutdown your services
 
 Go to the [CloudFormation dashboard on your account](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) and delete the stacks by selecting them, clicking the "Actions" menu and then clicking "Delete Stack"
 
