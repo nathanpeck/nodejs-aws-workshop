@@ -28,8 +28,13 @@ If you're on windows you'll need to convert the .pem file to .ppk to work with p
 ## 3. Start a development machine
 
 1. Deploy the CloudFormation stack in this folder
-2. Check the Outputs to find the IP address of the development machine
-3. SSH into the development machine
+2. Check the Outputs tab of the CloudFormation stack to find the IP address of the development machine
+
+SSH into the development machine:
+
+```
+ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
+```
 
 
 &nbsp;
