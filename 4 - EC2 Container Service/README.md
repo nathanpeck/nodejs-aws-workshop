@@ -47,6 +47,10 @@ Now authenticate with your repository so you have permission to push to it:
 
 You should see Login Succeeded
 
+&nbsp;
+
+&nbsp;
+
 ## 3. Build and Push
 
 First build each service's container image:
@@ -101,9 +105,50 @@ docker push 209640446841.dkr.ecr.us-east-2.amazonaws.com/locations:v1
 Use the following command to launch an ECS cluster on your account:
 
 ```
-aws cloudformation deploy --stack-name cluster --template-file recipes/cluster.yml --region us-east-2 --capabilities CAPABILITY_IAM
+aws cloudformation deploy --stack-name empirejs --template-file recipes/cluster.yml --region us-east-2 --capabilities CAPABILITY_IAM
+```
+
+You will see output similar to this:
+
+```
+Waiting for changeset to be created..
+Waiting for stack create/update to complete
+Successfully created/updated stack - cluster
 ```
 
 This may take a few minutes, while it creates a new private networking stack, and launches a small cluster of two t2.micro instances on your account. To view the list of resources that is being created [check the cloudformation stack itself](code/recipes/cluster.yml).
 
+Once the deployment completes you should open [the CloudFormation dashboard](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) to check the outputs of your newly created CloudFormation stack, as well as [the EC2 Container Service dashboard](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters) where you can see your new cluster. 
+
+## 4. Launch your containers as services
+
+To launch the docker containers that we created we will use another CloudFormation stack that automatically creates all the resources necessary to have an autoscaling service in an ECS cluster.
+
+```
+aws cloudformation deploy \
+  --stack-name empirejs-service-characters \
+  --template-file recipes/service.yml \
+  --region us-east-2 \
+  --parameter-overrides StackName=empirejs \
+                        ServiceName=characters\
+                        ListenerArn=<the listener arn from your cluster stack outputs>
+                        ImageUrl=<your characters repo URI>:v1 \
+                        Path=/api/characters/* \
+                        Priority=0 \
+```
+
+Example:
+
+```
+aws cloudformation deploy \
+  --stack-name empirejs-service-characters \
+  --template-file recipes/service.yml \
+  --region us-east-2 \
+  --parameter-overrides StackName=empirejs \
+                        ServiceName=characters \
+                        ListenerArn=arn:aws:elasticloadbalancing:us-east-2:209640446841:listener/app/empir-Publi-1PREN3F3SL9OX/e54b47ccad181048/ced3811235bf3a19 \
+                        ImageUrl=209640446841.dkr.ecr.us-east-2.amazonaws.com/characters:v1 \
+                        Path=/api/characters/* \
+                        Priority=0
+```
 

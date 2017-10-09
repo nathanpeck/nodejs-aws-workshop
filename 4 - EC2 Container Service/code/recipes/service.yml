@@ -61,10 +61,6 @@ Resources:
               Value:
                 Fn::ImportValue:
                   !Join [':', [!Ref 'StackName', 'ExternalUrl']]
-            - Name: 'INTERNAL_URL'
-              Value:
-                Fn::ImportValue:
-                  !Join [':', [!Ref 'StackName', 'InternalUrl']]
             - Name: 'NODE_ENV'
               Value: 'production'
             - Name: 'REGION'

@@ -389,6 +389,6 @@ Outputs:
     Value: !Ref 'VPC'
     Export:
       Name: !Join [ ':', [ !Ref 'AWS::StackName', 'VPCId' ] ]
-  LoadBalancerListeners:
-    Description: Map of the load balancers
+  LoadBalancerListener:
+    Description: The load balancer listener
     Value: !Ref PublicLoadBalancerListener
