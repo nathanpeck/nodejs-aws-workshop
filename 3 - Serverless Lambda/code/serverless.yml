@@ -17,7 +17,7 @@ provider:
   name: aws
   runtime: nodejs6.10
   stage: dev
-  region: us-east-1
+  region: us-east-2
 
 functions:
 
