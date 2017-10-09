@@ -132,7 +132,7 @@ To launch the docker containers that we created we will use another CloudFormati
 
 Run the following commands, substituting in your own repository URI from step #2 and your own `ListenerArn` from the outputs of the CloudFormation stack run in step #3.
 
-![cloudformation outputs](/images/cluster-outputs-listener.png)
+![cloudformation outputs](images/cluster-outputs-listener.png)
 
 ```
 aws cloudformation deploy \
@@ -188,7 +188,7 @@ aws cloudformation deploy \
 
 Verify that the services are operating by using the URL that is in the outputs of the cluster's CloudFormation stack:
 
-![cloudformation outputs](/images/cluster-outputs-url.png)
+![cloudformation outputs](images/cluster-outputs-url.png)
 
 You can fetch a URL from the service API using your browser or curl. For example:
 
@@ -204,7 +204,7 @@ curl http://empir-publi-8p1lmmeypqd3-1841449678.us-east-2.elb.amazonaws.com/api/
 
 Go to the [CloudFormation dashboard on your account](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) and delete the stacks by selecting them, clicking the "Actions" menu and then clicking "Delete Stack"
 
-![cloudformation outputs](/images/delete-stack.png)
+![cloudformation outputs](images/delete-stack.png)
 
 Note that you must delete the two stacks `empirejs-service-locations` and `empirejs-service-characters` first. Then you can delete the `empirejs` stack, because there is a dependency between the cluster and the services that prevents the cluster from being deleted until all services have been deleted first.
 
