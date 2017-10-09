@@ -30,8 +30,6 @@ router.get('/', function *() {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(8081);
-
 var server = app.listen(8081);
 
 process.on('SIGTERM', function() {

@@ -128,7 +128,7 @@ You should select the cluster stack and view the "Outputs" tab, as the next step
 
 ## 4. Launch your containers as services
 
-To launch the docker containers that we created we will use another CloudFormation stack that automatically creates all the resources necessary to have an autoscaling service in an ECS cluster.
+To launch the docker containers that we created we will use another CloudFormation stack that automatically creates all the resources necessary to have an autoscaling service in an ECS cluster. Once again I recommend [checking out the stack itself](code/recipes/service.yml) to understand more about the resources that this stack creates on your account.
 
 Run the following commands, substituting in your own repository URI from step #2 and your own `ListenerArn` from the outputs of the CloudFormation stack run in step #3.
 
@@ -236,3 +236,5 @@ Note that you must delete the two stacks `empirejs-service-locations` and `empir
 Finally go to the [repositories tab on the ECS dashboard](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/repositories), and select the docker repositories you created, and click "Delete Repository"
 
 ![cloudformation outputs](images/delete-repository.png)
+
+Last but not least if you are done with this workshop don't forget to also delete the cloudformation stack "empirejs-dev-machine", to destroy the development machine you used throughout this workshop.
