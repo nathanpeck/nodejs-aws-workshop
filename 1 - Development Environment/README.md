@@ -28,3 +28,42 @@ pip install awscli --upgrade --user
 curl -L https://git.io/n-install | bash -s -- -y 6.11.1 && . ~/.bashrc
 node -e "console.log('Running Node.js ' + process.version)"
 ```
+
+
+## 1. Start with IAM access for AWS Beanstalk
+
+Navigate to the [list of IAM users on your AWS account](https://console.aws.amazon.com/iam/home#/users)
+
+![IAM home](./images/iam-home.png)
+
+&nbsp;
+
+## 2. Add an IAM User
+
+Click the "Add User" button and fill out the two fields as indicated then click "Next"
+
+![Create User](./images/create-user.png)
+
+&nbsp;
+
+## 3. Attach permissions to the IAM user
+
+Select "Attach existing policies directly" tab, then select the "AdministratorAccess" policy. Finally click "Next".
+
+![Attach Permissions](./images/attach-permissions.png)
+
+&nbsp;
+
+## 4. Review the settings
+
+Ensure that the settings on your review page match the image below, then click "Create User".
+
+![Review](./images/review.png)
+
+&nbsp;
+
+## 5. Save credentials for your new user
+
+Click the "Download .csv" button to save the credentials for this user for future use.
+
+![Get Credentials](./images/get-credentials.png)
