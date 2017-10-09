@@ -14,10 +14,12 @@ Go to the EC2 Dashboard and click on Key Pairs in the left menu under Network & 
 If you're using linux or mac, change the permissions of the .pem file to be less open.
 
 ```
-$ chmod 400 PRIVATE_KEY.PEM
+$ chmod 400 <your key name>.PEM
 ```
 
-If you're on windows you'll need to convert the .pem file to .ppk to work with putty. Here is a link to instructions for the file conversion - [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
+Note that one Unix machines you should also place the key file at the location `~/.ssh`.
+
+If you're on windows you'll need to download an SSH tool such as [PuTTY](http://www.putty.org/), and convert the .pem file to .ppk to work with putty. Here is a link to instructions for the file conversion - [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
 
 
 &nbsp;
