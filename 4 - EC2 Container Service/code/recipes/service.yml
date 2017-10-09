@@ -51,10 +51,10 @@ Resources:
       ContainerDefinitions:
         - Name: !Ref 'ServiceName'
           Cpu: 256
-          Memory: 512
+          Memory: 256
           Image: !Ref 'ImageUrl'
           PortMappings:
-            - ContainerPort: 3000
+            - ContainerPort: 8081
               HostPort: 0
           Environment:
             - Name: 'EXTERNAL_URL'
@@ -115,7 +115,7 @@ Resources:
         Fn::If:
           - 'AttachedToLoadBalancer'
           - - ContainerName: !Ref 'ServiceName'
-              ContainerPort: 3000
+              ContainerPort: 8081
               TargetGroupArn: !Ref 'TargetGroup'
           - []
 

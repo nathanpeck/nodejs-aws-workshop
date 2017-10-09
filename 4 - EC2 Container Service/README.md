@@ -120,6 +120,10 @@ This may take a few minutes, while it creates a new private networking stack, an
 
 Once the deployment completes you should open [the CloudFormation dashboard](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) to check the outputs of your newly created CloudFormation stack, as well as [the EC2 Container Service dashboard](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters) where you can see your new cluster. 
 
+&nbsp;
+
+&nbsp;
+
 ## 4. Launch your containers as services
 
 To launch the docker containers that we created we will use another CloudFormation stack that automatically creates all the resources necessary to have an autoscaling service in an ECS cluster.
@@ -130,11 +134,22 @@ aws cloudformation deploy \
   --template-file recipes/service.yml \
   --region us-east-2 \
   --parameter-overrides StackName=empirejs \
-                        ServiceName=characters\
+                        ServiceName=characters \
                         ListenerArn=<the listener arn from your cluster stack outputs>
                         ImageUrl=<your characters repo URI>:v1 \
-                        Path=/api/characters/* \
-                        Priority=0 \
+                        Path=/api/characters* \
+                        Priority=1
+
+aws cloudformation deploy \
+  --stack-name empirejs-service-locations \
+  --template-file recipes/service.yml \
+  --region us-east-2 \
+  --parameter-overrides StackName=empirejs \
+                        ServiceName=locations \
+                        ListenerArn=<the listener arn from your cluster stack outputs>
+                        ImageUrl=<your locations repo URI>:v1 \
+                        Path=/api/locations* \
+                        Priority=2 \
 ```
 
 Example:
@@ -146,9 +161,20 @@ aws cloudformation deploy \
   --region us-east-2 \
   --parameter-overrides StackName=empirejs \
                         ServiceName=characters \
-                        ListenerArn=arn:aws:elasticloadbalancing:us-east-2:209640446841:listener/app/empir-Publi-1PREN3F3SL9OX/e54b47ccad181048/ced3811235bf3a19 \
+                        ListenerArn=arn:aws:elasticloadbalancing:us-east-2:209640446841:listener/app/empir-Publi-WBGE4CB5Z2EZ/e44b81a88b18e22d/733991c5fafa5fe3 \
                         ImageUrl=209640446841.dkr.ecr.us-east-2.amazonaws.com/characters:v1 \
-                        Path=/api/characters/* \
-                        Priority=0
+                        Path=/api/characters* \
+                        Priority=1
+
+aws cloudformation deploy \
+  --stack-name empirejs-service-locations \
+  --template-file recipes/service.yml \
+  --region us-east-2 \
+  --parameter-overrides StackName=empirejs \
+                        ServiceName=locations \
+                        ListenerArn=arn:aws:elasticloadbalancing:us-east-2:209640446841:listener/app/empir-Publi-WBGE4CB5Z2EZ/e44b81a88b18e22d/733991c5fafa5fe3 \
+                        ImageUrl=209640446841.dkr.ecr.us-east-2.amazonaws.com/locations:v1 \
+                        Path=/api/locations* \
+                        Priority=2
 ```
 

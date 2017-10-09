@@ -20,26 +20,33 @@ Parameters:
     ConstraintDescription: Please choose a valid instance type.
 Mappings:
   AWSRegionToAMI:
-    us-east-1:
-      AMIID: ami-d61027ad
-    us-east-2:
-      AMIID: ami-bb8eaede
-    us-west-1:
-      AMIID: ami-514e6431
-    us-west-2:
-      AMIID: ami-0a85946e
-    eu-west-1:
-      AMIID: ami-bd7e8dc4
-    eu-central-1:
-      AMIID: ami-f15ff69e
     ap-northeast-1:
-      AMIID: ami-ab5ea9cd
+      AMIID: ami-21815747
+    ap-northeast-2:
+      AMIID: ami-7ee13b10
     ap-southeast-1:
-      AMIID: ami-ae0b91cd
+      AMIID: ami-99f588fa
     ap-southeast-2:
-      AMIID: ami-c3233ba0
+      AMIID: ami-4f08e82d
     ca-central-1:
-      AMIID: ami-32bb0556
+      AMIID: ami-9b54edff
+    cn-north-1:
+      AMIID: ami-28e63645
+    eu-central-1:
+      AMIID: ami-40d5672f
+    eu-west-1:
+      AMIID: ami-13f7226a
+    eu-west-2:
+      AMIID: ami-eb62708f
+    us-east-1:
+      AMIID: ami-ec33cc96
+    us-east-2:
+      AMIID: ami-34032e51
+    us-west-1:
+      AMIID: ami-d5d0e0b5
+    us-west-2:
+      AMIID: ami-29f80351
+
   SubnetConfig:
     VPC:
       CIDR: '10.0.0.0/16'
