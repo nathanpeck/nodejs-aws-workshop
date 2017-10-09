@@ -46,7 +46,17 @@ curl https://dvlc67ufq7.execute-api.us-east-2.amazonaws.com/dev/api/characters/b
 
 &nbsp;
 
-## 4. Try modifying a function
+## 4. Tour the AWS Lambda console
+
+Check out the AWS console to see a list of the lambda functions that were created by Serverless:
+
+![lambda funciton list](./images/function-list.png)
+
+And to see how HTTP traffic gets to your Lambda functions you should check the [API Gateway console](https://us-east-2.console.aws.amazon.com/apigateway/home?region=us-east-2#/apis)
+
+![api gateway](./images/api-gateway.png)
+
+## 5. Try modifying a function
 
 You can modify any function, and redeploy by once again running:
 
@@ -58,7 +68,7 @@ serverless deploy
 
 &nbsp;
 
-## 5. Cleanup your environment
+## 6. Cleanup your environment
 
 Destroy all created resources by using
 
