@@ -76,7 +76,7 @@ Note that it will take a few minutes to launch your first environment, since thi
 
 ## 6. Verify that your environment is up and running:
 
-Access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/application/overview?applicationName=empirejs-workshop):
+After the application completes deploying you can access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/application/overview?applicationName=empirejs-workshop):
 
 ![EB create](./images/environment-url.png)
 
