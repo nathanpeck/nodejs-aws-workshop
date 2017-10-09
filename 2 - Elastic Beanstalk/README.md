@@ -70,7 +70,7 @@ pip install awsebcli --upgrade --user
 
 &nbsp;
 
-### 9. Initialize an Elastic Beanstalk application in the code directory:
+## 9. Initialize an Elastic Beanstalk application in the code directory:
 
 Use the following command to start a new Elastic Beanstalk application in the code directory:
 
@@ -88,7 +88,7 @@ The command line tool will automatically detect that this is a Node.js applicati
 
 &nbsp;
 
-### 10. Launch an environment for your application:
+## 10. Launch an environment for your application:
 
 Use the following command to launch the application your initialized on your account:
 
@@ -104,7 +104,7 @@ Note that it will take a few minutes to launch your first environment, since thi
 
 &nbsp;
 
-### 11. Verify that your environment is up and running:
+## 11. Verify that your environment is up and running:
 
 Access you environment using the URL that is listed in the Elastic Beanstalk interface:
 
@@ -122,7 +122,7 @@ Or you can just enter the URL into your browser to check it:
 
 &nbsp;
 
-### 12. Deploy a new version of the application:
+## 12. Deploy a new version of the application:
 
 You can make any changes that you want to the application, and then roll them out using the following command:
 
@@ -131,3 +131,24 @@ eb deploy
 ```
 
 Note that for any code changes to be reflected when the project being deployed is a Git repo the changes must be committed to the repo, because Elastic Beanstalk always deploys the most recent commit, never uncomitted changes.
+
+&nbsp;
+
+## 13. Shutdown the application
+
+Whe you are done experimenting with Elastic Beanstalk you can shutdown your application. First choose "Terminate Application" from the action menu on your environment:
+
+![Terminate environment](./images/terminate-environment.png)
+
+In the popup dialog enter the environment name to confirm that you really want to delete it, and click "Terminate"
+
+![Confirm termination](./images/confirm-termination.png)
+
+It will take a few minutes for the environment to be cleaned up. You will see events for the environment that indicate that it is being destroyed:
+
+![Termination events](./images/termination-events.png)
+
+Once you see "terminateEnvironment completed successfully" you can delete the application itself, by using the Action menu on the application:
+
+![Delete application](./images/delete-application.png)
+
