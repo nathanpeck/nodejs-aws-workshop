@@ -1,5 +1,13 @@
 ## 1. Install serverless on your dev machine
 
+If don't already have an SSH session open, SSH into your dev machine:
+
+```
+ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
+```
+
+Now install the Serverless framework on your dev machine:
+
 ```
 npm install -g serverless
 ```
@@ -22,7 +30,10 @@ The access key and secret key are the same access key and secret key that was us
 
 ## 3. Deploy the application
 
+Change your current working directory to the project directory then deploy using Serverless:
+
 ```
+cd ~/empirejs-workshop-nodejs-aws/3\ -\ Serverless\ Lambda/code
 serverless deploy
 ```
 

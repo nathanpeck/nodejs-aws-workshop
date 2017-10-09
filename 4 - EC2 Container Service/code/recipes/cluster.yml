@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Parameters:
   DesiredCapacity:
     Type: Number
-    Default: '3'
+    Default: '2'
     Description: Number of instances to launch in your ECS cluster.
   MaxSize:
     Type: Number
@@ -11,7 +11,7 @@ Parameters:
   InstanceType:
     Description: EC2 instance type
     Type: String
-    Default: c4.xlarge
+    Default: t2.micro
     AllowedValues: [t2.micro, t2.small, t2.medium, t2.large, m3.medium, m3.large,
       m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge,
       c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c3.large, c3.xlarge,
@@ -198,12 +198,6 @@ Resources:
       GroupId: !Ref 'EcsSecurityGroup'
       IpProtocol: -1
       SourceSecurityGroupId: !Ref 'PublicLoadBalancerSG'
-  EcsSecurityGroupIngressFromPrivateALB:
-    Type: AWS::EC2::SecurityGroupIngress
-    Properties:
-      GroupId: !Ref 'EcsSecurityGroup'
-      IpProtocol: -1
-      SourceSecurityGroupId: !Ref 'PrivateLoadBalancerSG'
   CloudwatchLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:

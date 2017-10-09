@@ -8,6 +8,8 @@ ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 
 &nbsp;
 
+&nbsp;
+
 ## 2. Clone the workshop repository
 
 Clone the workshop repository using its public endpoint, then switch your current working directory to the elastic beanstalk code directory:
@@ -20,6 +22,8 @@ cd empirejs-workshop-nodejs-aws/2\ -\ Elastic\ Beanstalk/code
 
 &nbsp;
 
+&nbsp;
+
 ## 3. Install the Elastic Beanstalk command line tool
 
 Now we will use Python PIP to install the Elastic Beanstalk command line tool. This tool will give us a command line wizard that will help detect details of our project, and automatically deploy it on AWS:
@@ -27,6 +31,8 @@ Now we will use Python PIP to install the Elastic Beanstalk command line tool. T
 ```
 pip install awsebcli --upgrade --user
 ```
+
+&nbsp;
 
 &nbsp;
 
