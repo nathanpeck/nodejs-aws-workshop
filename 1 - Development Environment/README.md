@@ -71,6 +71,8 @@ SSH into the development machine:
 ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 ```
 
+(Once again if you are in Windows you will need to use Putty as described in the AWS docs: [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html))
+
 Run the following commands on your development machine to setup the development tools needed to run this workshop:
 
 ```
