@@ -48,6 +48,8 @@ The command line tool will automatically detect that this is a Node.js applicati
 
 &nbsp;
 
+&nbsp;
+
 ## 5. Launch an environment for your application:
 
 Use the following command to launch the application your initialized on your account:
@@ -61,6 +63,8 @@ This will start a command line wizard that asks you a few questions about the en
 ![EB create](./images/create-environment.png)
 
 Note that it will take a few minutes to launch your first environment, since this is creating all the initial resources that are required. Once the environment is created future updates are faster.
+
+&nbsp;
 
 &nbsp;
 
@@ -82,6 +86,8 @@ Or you can just enter the URL into your browser to check it:
 
 &nbsp;
 
+&nbsp;
+
 ## 7. Deploy a new version of the application:
 
 You can make any changes that you want to the application, and then roll them out using the following command:
@@ -91,6 +97,8 @@ eb deploy
 ```
 
 Note that for any code changes to be reflected when the project being deployed is a Git repo the changes must be committed to the repo, because Elastic Beanstalk always deploys the most recent commit, never uncomitted changes.
+
+&nbsp;
 
 &nbsp;
 

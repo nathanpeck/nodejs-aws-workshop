@@ -4,6 +4,10 @@
 npm install -g serverless
 ```
 
+&nbsp;
+
+&nbsp;
+
 ## 2. Configure your serverless provider to be AWS
 
 ```
@@ -12,6 +16,10 @@ serverless config credentials --provider aws --key <access key> --secret <secret
 
 The access key and secret key are the same access key and secret key that was used in the previous Elastic Beanstalk tutorial.
 
+&nbsp;
+
+&nbsp;
+
 ## 3. Deploy the application
 
 ```
@@ -19,6 +27,10 @@ serverless deploy
 ```
 
 ![serverless deploy](./images/serverless-deploy.png)
+
+&nbsp;
+
+&nbsp;
 
 ## 4. Try fetching one of the endpoints
 
@@ -31,6 +43,10 @@ curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters
 curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters/by-species/vampire
 ```
 
+&nbsp;
+
+&nbsp;
+
 ## 5. Try modifying a function
 
 You can modify any function, and redeploy by once again running:
@@ -38,6 +54,10 @@ You can modify any function, and redeploy by once again running:
 ```
 serverless deploy
 ```
+
+&nbsp;
+
+&nbsp;
 
 ## 6. Cleanup your environment
 
