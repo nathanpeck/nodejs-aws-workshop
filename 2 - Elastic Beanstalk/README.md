@@ -4,11 +4,15 @@ Navigate to the [list of IAM users on your AWS account](https://console.aws.amaz
 
 ![IAM home](./images/iam-home.png)
 
+
+
 ## 2. Add an IAM User
 
 Click the "Add User" button and fill out the two fields as indicated then click "Next"
 
 ![Create User](./images/create-user.png)
+
+
 
 ## 3. Attach permissions to the IAM user
 
@@ -16,17 +20,23 @@ Select "Attach existing policies directly" tab, then select the "AdministratorAc
 
 ![Attach Permissions](./images/attach-permissions.png)
 
+
+
 ## 4. Review the settings
 
 Ensure that the settings on your review page match the image below, then click "Create User".
 
 ![Review](./images/review.png)
 
+
+
 ## 5. Save credentials for your new user
 
 Click the "Download .csv" button to save the credentials for this user for future use.
 
 ![Get Credentials](./images/get-credentials.png)
+
+
 
 ## 6. SSH into the development instance
 
@@ -35,6 +45,8 @@ If you don't already have an SSH shell open on the development instance open one
 ```
 ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 ```
+
+
 
 ## 7. Clone the workshop repository
 
@@ -46,6 +58,8 @@ git clone https://github.com/nathanpeck/empirejs-workshop-nodejs-aws.git
 cd empirejs-workshop-nodejs-aws/2\ -\ Elastic\ Beanstalk/code
 ```
 
+
+
 ## 8. Install the Elastic Beanstalk command line tool
 
 Now we will use Python PIP to install the Elastic Beanstalk command line tool. This tool will give us a command line wizard that will help detect details of our project, and automatically deploy it on AWS:
@@ -53,6 +67,8 @@ Now we will use Python PIP to install the Elastic Beanstalk command line tool. T
 ```
 pip install awsebcli --upgrade --user
 ```
+
+
 
 ### 9. Initialize an Elastic Beanstalk application in the code directory:
 
@@ -70,6 +86,8 @@ Complete the wizard as shown below:
 
 The command line tool will automatically detect that this is a Node.js application.
 
+
+
 ### 10. Launch an environment for your application:
 
 Use the following command to launch the application your initialized on your account:
@@ -83,6 +101,8 @@ This will start a command line wizard that asks you a few questions about the en
 ![EB create](./images/create-environment.png)
 
 Note that it will take a few minutes to launch your first environment, since this is creating all the initial resources that are required. Once the environment is created future updates are faster.
+
+
 
 ### 11. Verify that your environment is up and running:
 
@@ -99,6 +119,8 @@ curl http://empirejs-workshop-dev.us-east-2.elasticbeanstalk.com/api/users
 Or you can just enter the URL into your browser to check it:
 
 ![EB create](./images/browser-json.png)
+
+
 
 ### 12. Deploy a new version of the application:
 
