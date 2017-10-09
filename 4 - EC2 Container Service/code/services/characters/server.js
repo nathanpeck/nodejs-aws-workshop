@@ -19,15 +19,6 @@ router.get('/api/characters/:id', function *() {
   this.body = db.characters.find((character) => character.id === id);
 });
 
-router.get('/api/locations', function *() {
-  this.body = db.locations;
-});
-
-router.get('/api/locations/:id', function *() {
-  const id = parseInt(this.params.id, 10);
-  this.body = db.locations.find((location) => location.id === id);
-});
-
 router.get('/api/characters/by-location/:locationId', function *() {
   const id = parseInt(this.params.locationId, 10);
   this.body = db.characters.filter((character) => character.location === id);

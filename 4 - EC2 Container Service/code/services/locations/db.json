@@ -1,0 +1,19 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "The Nightosphere",
+      "description": "The demon world"
+    },
+    {
+      "id": 2,
+      "name": "Tree Fort",
+      "description": "Home of Finn, Jake, and BMO"
+    },
+    {
+      "id": 3,
+      "name": "Candy Kingdom",
+      "description": "Kingdom made up of and populated by candy people"
+    }
+  ]
+}
