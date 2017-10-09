@@ -225,7 +225,7 @@ From this dashboard you can modify a service to increase the number of tasks tha
 
 &nbsp;
 
-## 7. Shutdown your services
+## 7. Shutdown & Cleanup
 
 Go to the [CloudFormation dashboard on your account](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active) and delete the stacks by selecting them, clicking the "Actions" menu and then clicking "Delete Stack"
 
