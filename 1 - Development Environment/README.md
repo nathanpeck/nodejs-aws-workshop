@@ -4,7 +4,7 @@ First, you'll need to select a region. I recommend using `us-east-2` (Ohio) sinc
 
 ![IAM home](./images/region.png)
 
-Go to the [EC2 Dashboard](https://console.aws.amazon.com/ec2/home?region=us-east-1#KeyPairs:sort=keyName) and click on Key Pairs in the left menu under Network & Security. Click "Create Key Pair", provide a name (can be anything, make it something memorable) when prompted, and click Create. 
+Go to the [EC2 Dashboard](https://console.aws.amazon.com/ec2/home?region=us-east-2#KeyPairs:sort=keyName) and click on Key Pairs in the left menu under Network & Security. Click "Create Key Pair", provide a name (can be anything, make it something memorable) when prompted, and click Create. 
 
 ![IAM home](./images/create-keypair.png)
 
@@ -35,7 +35,10 @@ If you're on windows you'll need to download an SSH tool such as [PuTTY](http://
 
 ## 3. Start a development machine
 
-1. Deploy the CloudFormation stack in this folder
+Go the [CloudFormation dashboard](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filter=active), and click "Create Stack".
+
+
+
 2. Check the Outputs tab of the CloudFormation stack to find the IP address of the development machine
 
 SSH into the development machine:

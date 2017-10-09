@@ -50,8 +50,8 @@ In the output from the previous deploy step you will see a list of the API route
 For example:
 
 ```
-curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters
-curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters/by-species/vampire
+curl https://dvlc67ufq7.execute-api.us-east-2.amazonaws.com/dev/api/characters
+curl https://dvlc67ufq7.execute-api.us-east-2.amazonaws.com/dev/api/characters/by-species/vampire
 ```
 
 &nbsp;
