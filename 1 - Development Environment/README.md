@@ -16,13 +16,13 @@ Once created, the private key in the form of .pem file will be automatically dow
 
 ## 2. Make the SSH key file ready to use
 
-If you're using linux or mac, change the permissions of the .pem file to be less open.
+If you're using linux or mac, change the permissions of the .pem file to be less open. For example assuming you named your key "empirejs-workshop":
 
 ```
-$ chmod 400 <your key name>.PEM
+$ chmod 400 ~/.ssh/empirejs-workshop.pem
 ```
 
-Note that one Unix machines you should also place the key file at the location `~/.ssh`.
+(Note that on Unix machines you should place the key file at the location `~/.ssh`.)
 
 If you're on windows you'll need to download an SSH tool such as [PuTTY](http://www.putty.org/), and convert the .pem file to .ppk to work with putty. Here is a link to instructions for the file conversion - [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html)
 
@@ -71,7 +71,17 @@ SSH into the development machine:
 ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 ```
 
+Example:
+
+```
+ssh -i ~/.ssh/empirejs-workshop.pem ec2-user@18.221.164.244
+```
+
 (Once again if you are in Windows you will need to use Putty as described in the AWS docs: [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html))
+
+On the first connection you will need to type "yes" to trust the host, since it is unknown since you have never connected to it.
+
+![authorize](./images/authorize.png)
 
 Run the following commands on your development machine to setup the development tools needed to run this workshop:
 
@@ -83,7 +93,6 @@ pip install awscli --upgrade --user
 curl -L https://git.io/n-install | bash -s -- -y 6.11.1 && . ~/.bashrc
 node -e "console.log('Running Node.js ' + process.version)"
 ```
-
 
 &nbsp;
 
