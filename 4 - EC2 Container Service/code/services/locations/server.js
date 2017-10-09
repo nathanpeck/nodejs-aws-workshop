@@ -19,6 +19,10 @@ router.get('/api/locations/:id', function *() {
   this.body = db.locations.find((location) => location.id === id);
 });
 
+router.get('/', function *() {
+  this.body = 'Ready to receive requests';
+});
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 
