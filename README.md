@@ -26,9 +26,8 @@ The API has a basic spec:
 
 1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
 2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
-3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/) to use for the rest of workshop
-4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/) to use for the rest of workshop
-
+3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
+4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/)
 
 ## Architecture Diagrams
 
