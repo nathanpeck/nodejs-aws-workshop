@@ -1,16 +1,24 @@
 # Empire Conf - Deploying Node.js on AWS
 
-This workshop has step by step tutorials on how to deploy Node.js applications using three different AWS techniques:
+As a developer you are probably already familiar with how to build and run an application on your local machine:
+
+![small localhost](1%20-%20Development%20Environment/images/localhost.png)
+
+But the next step is packaging your application up and running in it on a server, and managing this can be challenging:
+
+![large deployment](1%20-%20Development%20Environment/images/deployment.png)
+
+This workshop will help you go from localhost to deployed on AWS, using three different AWS services:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
 - [EC2 Container Service](https://aws.amazon.com/ecs/)
 
-To demonstrate these three different platforms we will be deploying a simple REST API for an Adventure Time fan website. The website provides a basic API for consuming structured data about Adventure Time characters and locations.
+For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages. The sample app is a simple REST API for an Adventure Time fan website. The API provides endpoints for consuming structured data about Adventure Time characters and locations.
 
-You can view an example of the data [here](2%20-%20Elastic%20Beanstalk/code/db.json)
+You can view an example of the raw data [here](2%20-%20Elastic%20Beanstalk/code/db.json)
 
-The API has a basic spec:
+The external HTTP interface of the API has a basic spec:
 
 - `GET /api/` - A simple welcome message
 - `GET /api/characters` - A list of all characters
