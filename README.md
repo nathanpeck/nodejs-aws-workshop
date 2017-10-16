@@ -4,11 +4,11 @@ As a developer you are probably already familiar with how to build and run an ap
 
 ![small localhost](1%20-%20Development%20Environment/images/localhost.png)
 
-But the next step is packaging your application up and running in it on a server, or even a whole fleet of servers, and managing this can be challenging:
+But the next step is packaging your application up and running it on a server, or even a whole fleet of servers, and managing this can be challenging:
 
 ![large deployment](1%20-%20Development%20Environment/images/deployment.png)
 
-This workshop will help you go from localhost to deployed on AWS, using three different AWS services:
+This workshop will help you go from localhost to deployed on AWS three times, using three different services:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
