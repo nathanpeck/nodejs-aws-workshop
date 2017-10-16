@@ -12,15 +12,15 @@ You can view an example of the data [here](2%20-%20Elastic%20Beanstalk/code/db.j
 
 The API has a basic spec:
 
-- GET /api/ - A simple welcome message
-- GET /api/characters - A list of all characters
-- GET /api/characters/:id - Fetch a specific character by ID
-- GET /api/locations - A list of all locations
-- GET /api/locations/:id - Fetch a specific location by ID
-- GET /api/characters/by-location/:locationId - Fetch all characters at a specific location
-- GET /api/characters/by-gender/:gender - Fetch all characters of specified gender
-- GET /api/characters/by-species/:species - Fetch all characters of specified species
-- GET /api/characters/by-occupation/:occupation - Fetch all characters that have specified occupation
+- `GET /api/` - A simple welcome message
+- `GET /api/characters` - A list of all characters
+- `GET /api/characters/:id` - Fetch a specific character by ID
+- `GET /api/locations` - A list of all locations
+- `GET /api/locations/:id` - Fetch a specific location by ID
+- `GET /api/characters/by-location/:locationId` - Fetch all characters at a specific location
+- `GET /api/characters/by-gender/:gender` - Fetch all characters of specified gender
+- `GET /api/characters/by-species/:species` - Fetch all characters of specified species
+- `GET /api/characters/by-occupation/:occupation` - Fetch all characters that have specified occupation
 
 ## Instructions
 
