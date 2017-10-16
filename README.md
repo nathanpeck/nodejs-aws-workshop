@@ -22,6 +22,8 @@ The API has a basic spec:
 - `GET /api/characters/by-species/:species` - Fetch all characters of specified species
 - `GET /api/characters/by-occupation/:occupation` - Fetch all characters that have specified occupation
 
+&nbsp;
+
 ## Instructions
 
 1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
@@ -29,22 +31,24 @@ The API has a basic spec:
 3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
 4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/)
 
+&nbsp;
+
 ## Architecture Diagrams
 
 ### [Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
 
-A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes is run.
+A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes sharing a single port is used in order to fully utilize all cores of a multicore EC2 Instance:
 
 ![elastic beanstalk](1%20-%20Development%20Environment/images/elastic-beanstalk-architecture.png)
 
 ### [EC2 Container Service](4%20-%20EC2%20Container%20Service/)
 
-Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers.
+Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers. Each docker container has a single process. Container ports are linked to randomly assigned external ports on the host instance:
 
 ![ec2 container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
 
 ### [Lambda](3%20-%20Serverless%20Lambda/)
 
-Nanoservices. Each API endpoint is served by its own AWS Lambda function. An API gateway sits in front of all the Lambdas and routes requests to each function.
+Nanoservices. Each API endpoint is served by its own AWS Lambda function. An API gateway sits in front of all the Lambdas and routes requests to each function:
 
 ![lambda](1%20-%20Development%20Environment/images/lambda-architecture.png)
