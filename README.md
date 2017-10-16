@@ -22,21 +22,29 @@ The API has a basic spec:
 - GET /api/characters/by-species/:species - Fetch all characters of specified species
 - GET /api/characters/by-occupation/:occupation - Fetch all characters that have specified occupation
 
+## Instructions
+
+1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
+2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
+3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/) to use for the rest of workshop
+4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/) to use for the rest of workshop
+
+
 ## Architecture Diagrams
 
-### Elastic Beanstalk
+### [Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
 
 A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes is run.
 
 ![elastic beanstalk](1%20-%20Development%20Environment/images/elastic-beanstalk-architecture.png)
 
-### EC2 Container Service
+### [EC2 Container Service](4%20-%20EC2%20Container%20Service/)
 
 Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers.
 
 ![ec2 container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
 
-### Lambda
+### [Lambda](3%20-%20Serverless%20Lambda/)
 
 Nanoservices. Each API endpoint is served by its own AWS Lambda function. An API gateway sits in front of all the Lambdas and routes requests to each function.
 
