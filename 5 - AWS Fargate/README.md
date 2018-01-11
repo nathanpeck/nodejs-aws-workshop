@@ -42,7 +42,15 @@ fargate lb create node-app --port 80
 
 ```
 cd characters
-fargate service create characters --lb node-app --port 3000 --rule PATH=/api/characters*
+fargate service create characters --lb node-app --port 80 --rule PATH=/api/characters*
 cd ../locations
-fargate service create locations --lb node-app --port 3000 --rule PATH=/api/locations*
+fargate service create locations --lb node-app --port 80 --rule PATH=/api/locations*
+```
+
+## 5. Fetch load balancer info
+
+Now lets fetch the info of the load balancer to make sure that it is configured correctly and to get the DNS name of the load balancer:
+
+```
+fargate lb info node-app
 ```

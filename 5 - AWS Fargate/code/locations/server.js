@@ -30,7 +30,7 @@ router.get('/', function *() {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-var server = app.listen(8081);
+var server = app.listen(80);
 
 process.on('SIGTERM', function() {
   console.log('Shutting down...');
