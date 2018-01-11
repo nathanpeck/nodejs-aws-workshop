@@ -1,6 +1,6 @@
 ## 1. Create an SSH Key
 
-First, you'll need to select a region. I recommend using `us-east-1` (Ohio) since this region will be referenced throughout the rest of the workshop. You can change your region by using the drop down just to the left of the "Support" menu in the top menubar:
+First, you'll need to select a region. I recommend using `us-east-1` (North Virginia) since this region will be referenced throughout the rest of the workshop. You can change your region by using the drop down just to the left of the "Support" menu in the top menubar:
 
 ![IAM home](./images/region.png)
 
@@ -86,7 +86,7 @@ On the first connection you will need to type "yes" to trust the host, since it 
 Run the following commands on your development machine to setup the development tools needed to run this workshop:
 
 ```
-sudo yum install -y git
+sudo yum install -y git unzip
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py --user
 pip install awscli --upgrade --user
@@ -97,6 +97,8 @@ node -e "console.log('Running Node.js ' + process.version)"
 &nbsp;
 
 &nbsp;
+
+# (Optional) Secure your AWS account by using an IAM User instead of your root account credentials
 
 ## 5. Create an IAM user on your account
 
