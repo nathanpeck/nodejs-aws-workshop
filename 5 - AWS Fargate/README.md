@@ -33,3 +33,16 @@ sudo unzip fargate-0.2.1-linux-amd64.zip -d /usr/local/bin
 ```
 
 ## 3. Create a load balancer for your AWS Fargate deployment
+
+```
+fargate lb create node-app --port 80
+```
+
+## 4. Build and deploy
+
+```
+cd characters
+fargate service create characters --lb node-app --port 3000 --rule PATH=/api/characters*
+cd ../locations
+fargate service create locations --lb node-app --port 3000 --rule PATH=/api/locations*
+```
