@@ -4,31 +4,35 @@ Description: Bootstrap development environment
 Mappings:
   ECSAmi:
     ap-northeast-1:
-      AMI: ami-21815747
+      AMI: ami-72f36a14
     ap-northeast-2:
-      AMI: ami-7ee13b10
+      AMI: ami-59b71737
     ap-southeast-1:
-      AMI: ami-99f588fa
+      AMI: ami-e782f29b
     ap-southeast-2:
-      AMI: ami-4f08e82d
+      AMI: ami-7aa15c18
+    ap-south-1:
+      AMI: ami-f4db8f9b
     ca-central-1:
-      AMI: ami-9b54edff
-    cn-north-1:
-      AMI: ami-28e63645
+      AMI: ami-9afc79fe
+    sa-east-1:
+      AMI: ami-49256725
     eu-central-1:
-      AMI: ami-40d5672f
+      AMI: ami-eacf5d85
     eu-west-1:
-      AMI: ami-13f7226a
+      AMI: ami-acb020d5
     eu-west-2:
-      AMI: ami-eb62708f
+      AMI: ami-4d809829
+    eu-west-3:
+      AMI: ami-5e02b523
     us-east-1:
-      AMI: ami-ec33cc96
+      AMI: ami-ba722dc0
     us-east-2:
-      AMI: ami-34032e51
+      AMI: ami-13af8476
     us-west-1:
-      AMI: ami-d5d0e0b5
+      AMI: ami-9df0f0fd
     us-west-2:
-      AMI: ami-29f80351
+      AMI: ami-c9c87cb1
   SubnetConfig:
     VPC:
       CIDR: '10.0.0.0/16'

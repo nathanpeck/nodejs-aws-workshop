@@ -1,10 +1,11 @@
-# Empire.js - Deploying Node.js on AWS
+# Deploying Node.js on AWS
 
 This workshop has step by step tutorials on how to deploy Node.js applications using three different AWS techniques:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
 - [EC2 Container Service](https://aws.amazon.com/ecs/)
+- [AWS Fargate](https://aws.amazon.com/fargate/)
 
 To demonstrate these three different platforms we will be deploying a simple REST API for an Adventure Time fan website. The website provides a basic API for consuming structured data about Adventure Time characters and locations.
 

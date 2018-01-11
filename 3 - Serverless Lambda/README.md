@@ -38,8 +38,8 @@ In the output from the previous deploy step you will see a list of the API route
 For example:
 
 ```
-curl https://dvlc67ufq7.execute-api.us-east-2.amazonaws.com/dev/api/characters
-curl https://dvlc67ufq7.execute-api.us-east-2.amazonaws.com/dev/api/characters/by-species/vampire
+curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters
+curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters/by-species/vampire
 ```
 
 &nbsp;
@@ -52,7 +52,7 @@ Check out the AWS console to see a list of the lambda functions that were create
 
 ![lambda funciton list](./images/function-list.png)
 
-And to see how HTTP traffic gets to your Lambda functions you should check the [API Gateway console](https://us-east-2.console.aws.amazon.com/apigateway/home?region=us-east-2#/apis)
+And to see how HTTP traffic gets to your Lambda functions you should check the [API Gateway console](https://us-east-1.console.aws.amazon.com/apigateway/home?region=us-east-1#/apis)
 
 ![api gateway](./images/api-gateway.png)
 
