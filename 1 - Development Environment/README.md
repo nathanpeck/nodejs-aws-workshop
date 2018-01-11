@@ -16,10 +16,10 @@ Once created, the private key in the form of .pem file will be automatically dow
 
 ## 2. Make the SSH key file ready to use
 
-If you're using linux or mac, change the permissions of the .pem file to be less open. For example assuming you named your key "empirejs-workshop":
+If you're using linux or mac, change the permissions of the .pem file to be less open. For example assuming you named your key "nodejs-workshop":
 
 ```
-$ chmod 400 ~/.ssh/empirejs-workshop.pem
+$ chmod 400 ~/.ssh/nodejs-workshop.pem
 ```
 
 (Note that on Unix machines you should place the key file at the location `~/.ssh`.)
@@ -74,7 +74,7 @@ ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
 Example:
 
 ```
-ssh -i ~/.ssh/empirejs-workshop.pem ec2-user@18.221.164.244
+ssh -i ~/.ssh/nodejs-workshop.pem ec2-user@18.221.164.244
 ```
 
 (Once again if you are in Windows you will need to use Putty as described in the AWS docs: [Connecting to Your Linux Instance from Windows Using PuTTY](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html))

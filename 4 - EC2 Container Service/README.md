@@ -9,7 +9,7 @@ ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
 Then change your current working directory to the project directory:
 
 ```
-cd ~/empirejs-workshop-nodejs-aws/4\ -\ EC2\ Container\ Service/code
+cd ~/nodejs-aws-workshop/4\ -\ EC2\ Container\ Service/code
 ```
 
 &nbsp;
@@ -105,7 +105,7 @@ docker push 209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1
 Use the following command to launch an ECS cluster on your account:
 
 ```
-aws cloudformation deploy --stack-name empirejs --template-file recipes/cluster.yml --region us-east-1 --capabilities CAPABILITY_IAM
+aws cloudformation deploy --stack-name nodejs --template-file recipes/cluster.yml --region us-east-1 --capabilities CAPABILITY_IAM
 ```
 
 You will see output similar to this:
@@ -136,10 +136,10 @@ Run the following commands, substituting in your own repository URI from step #2
 
 ```
 aws cloudformation deploy \
-  --stack-name empirejs-service-characters \
+  --stack-name nodejs-service-characters \
   --template-file recipes/service.yml \
   --region us-east-1 \
-  --parameter-overrides StackName=empirejs \
+  --parameter-overrides StackName=nodejs \
                         ServiceName=characters \
                         ListenerArn=<the listener arn from your cluster stack outputs>
                         ImageUrl=<your characters repo URI>:v1 \
@@ -147,10 +147,10 @@ aws cloudformation deploy \
                         Priority=1
 
 aws cloudformation deploy \
-  --stack-name empirejs-service-locations \
+  --stack-name nodejs-service-locations \
   --template-file recipes/service.yml \
   --region us-east-1 \
-  --parameter-overrides StackName=empirejs \
+  --parameter-overrides StackName=nodejs \
                         ServiceName=locations \
                         ListenerArn=<the listener arn from your cluster stack outputs>
                         ImageUrl=<your locations repo URI>:v1 \
@@ -162,10 +162,10 @@ Example:
 
 ```
 aws cloudformation deploy \
-  --stack-name empirejs-service-characters \
+  --stack-name nodejs-service-characters \
   --template-file recipes/service.yml \
   --region us-east-1 \
-  --parameter-overrides StackName=empirejs \
+  --parameter-overrides StackName=nodejs \
                         ServiceName=characters \
                         ListenerArn=arn:aws:elasticloadbalancing:us-east-1:209640446841:listener/app/empir-Publi-8P1LMMEYPQD3/259190f1dd5cf73d/cf0803942aa32eb2 \
                         ImageUrl=209640446841.dkr.ecr.us-east-1.amazonaws.com/characters:v1 \
@@ -173,10 +173,10 @@ aws cloudformation deploy \
                         Priority=1
 
 aws cloudformation deploy \
-  --stack-name empirejs-service-locations \
+  --stack-name nodejs-service-locations \
   --template-file recipes/service.yml \
   --region us-east-1 \
-  --parameter-overrides StackName=empirejs \
+  --parameter-overrides StackName=nodejs \
                         ServiceName=locations \
                         ListenerArn=arn:aws:elasticloadbalancing:us-east-1:209640446841:listener/app/empir-Publi-8P1LMMEYPQD3/259190f1dd5cf73d/cf0803942aa32eb2 \
                         ImageUrl=209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1 \
@@ -231,10 +231,10 @@ Go to the [CloudFormation dashboard on your account](https://us-east-1.console.a
 
 ![cloudformation outputs](images/delete-stack.png)
 
-Note that you must delete the two stacks `empirejs-service-locations` and `empirejs-service-characters` first. Then you can delete the `empirejs` stack, because there is a dependency between the cluster and the services that prevents the cluster from being deleted until all services have been deleted first.
+Note that you must delete the two stacks `nodejs-service-locations` and `nodejs-service-characters` first. Then you can delete the `nodejs` stack, because there is a dependency between the cluster and the services that prevents the cluster from being deleted until all services have been deleted first.
 
 Finally go to the [repositories tab on the ECS dashboard](https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1#/repositories), and select the docker repositories you created, and click "Delete Repository"
 
 ![cloudformation outputs](images/delete-repository.png)
 
-Last but not least if you are done with this workshop don't forget to also delete the cloudformation stack "empirejs-dev-machine", to destroy the development machine you used throughout this workshop.
+Last but not least if you are done with this workshop don't forget to also delete the cloudformation stack "nodejs-dev-machine", to destroy the development machine you used throughout this workshop.

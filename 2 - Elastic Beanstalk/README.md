@@ -16,8 +16,8 @@ Clone the workshop repository using its public endpoint, then switch your curren
 
 ```
 cd ~
-git clone https://github.com/nathanpeck/empirejs-workshop-nodejs-aws.git
-cd empirejs-workshop-nodejs-aws/2\ -\ Elastic\ Beanstalk/code
+git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
+cd nodejs-aws-workshop/2\ -\ Elastic\ Beanstalk/code
 ```
 
 &nbsp;
@@ -76,14 +76,14 @@ Note that it will take a few minutes to launch your first environment, since thi
 
 ## 6. Verify that your environment is up and running:
 
-After the application completes deploying you can access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/application/overview?applicationName=empirejs-workshop):
+After the application completes deploying you can access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/application/overview?applicationName=nodejs-workshop):
 
 ![EB create](./images/environment-url.png)
 
 Here is an example of using curl to fetch a list of users from the API:
 
 ```
-curl http://empirejs-workshop-dev.us-east-1.elasticbeanstalk.com/api/characters
+curl http://nodejs-workshop-dev.us-east-1.elasticbeanstalk.com/api/characters
 ```
 
 Or you can just enter the URL into your browser to check it:

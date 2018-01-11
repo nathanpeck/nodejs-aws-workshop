@@ -21,7 +21,7 @@ npm install -g serverless
 Change your current working directory to the project directory then deploy using Serverless:
 
 ```
-cd ~/empirejs-workshop-nodejs-aws/3\ -\ Serverless\ Lambda/code
+cd ~/nodejs-aws-workshop/3\ -\ Serverless\ Lambda/code
 serverless deploy
 ```
 
