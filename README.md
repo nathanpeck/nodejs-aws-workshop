@@ -19,7 +19,7 @@ For this workshop the sample code is written in Node.js but the same Amazon serv
 
 ## Sample Application
 
-<img align="left" width="100" src="https://github.com/nathanpeck/nodejs-aws-workshop/blob/master/1%20-%20Development%20Environment/images/adventure-time.png">
+<img align="left" width="140" src="https://github.com/nathanpeck/nodejs-aws-workshop/blob/master/1%20-%20Development%20Environment/images/adventure-time.png">
 The sample app is a simple REST API for an Adventure Time fan website. The API provides endpoints for consuming structured data about Adventure Time characters and locations.
 
 You can view an example of the raw data [here](2%20-%20Elastic%20Beanstalk/code/db.json)
