@@ -25,7 +25,7 @@ cd ~/nodejs-aws-workshop/5\ -\ AWS\ Fargate/code
 
 ## 2. Install the Fargate CLI tool:
 
-For this workshop we will be using a command line tool by @jpignata called [fargate](http://somanymachines.com/fargate/)
+For this workshop we will be using a command line tool by [@jpignata](https://github.com/jpignata) called [fargate](http://somanymachines.com/fargate/)
 
 ```
 curl -OL https://github.com/jpignata/fargate/releases/download/v0.2.1/fargate-0.2.1-linux-amd64.zip

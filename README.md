@@ -15,7 +15,12 @@ This workshop will help you go from localhost to deployed on AWS three times, us
 - [EC2 Container Service](https://aws.amazon.com/ecs/)
 - [AWS Fargate](https://aws.amazon.com/fargate/)
 
-For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages. The sample app is a simple REST API for an Adventure Time fan website. The API provides endpoints for consuming structured data about Adventure Time characters and locations.
+For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages.
+
+## Sample Application
+
+<img align="left" width="100" src="https://github.com/nathanpeck/nodejs-aws-workshop/blob/master/1%20-%20Development%20Environment/images/adventure-time.png">
+The sample app is a simple REST API for an Adventure Time fan website. The API provides endpoints for consuming structured data about Adventure Time characters and locations.
 
 You can view an example of the raw data [here](2%20-%20Elastic%20Beanstalk/code/db.json)
 
