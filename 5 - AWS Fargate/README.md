@@ -78,6 +78,8 @@ fargate service info characters
 
 ![service info](images/service-info.png)
 
+You can also look at the [ECS cluster in the AWS console](https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/fargate/services) to see your services and their current status.
+
 &nbsp;
 
 &nbsp;
