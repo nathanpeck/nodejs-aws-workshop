@@ -39,6 +39,7 @@ The external HTTP interface of the API has a basic spec:
 2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
 3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
 4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/)
+5. [Deploy API using AWS Fargate](5%20-%20AWS%20Fargate/)
 
 &nbsp;
 
