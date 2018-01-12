@@ -118,7 +118,7 @@ Successfully created/updated stack - cluster
 
 This may take a few minutes, while it creates a new private networking stack, and launches a small cluster of two t2.micro instances on your account. To view the list of resources that is being created [check the cloudformation stack itself](code/recipes/cluster.yml).
 
-Once the deployment completes you should open [the CloudFormation dashboard](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) to check the outputs of your newly created CloudFormation stack, as well as [the EC2 Container Service dashboard](https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1#/clusters) where you can see your new cluster.
+Once the deployment completes you should open [the CloudFormation dashboard](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filter=active) to check the outputs of your newly created CloudFormation stack, as well as [the Elastic Container Service dashboard](https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1#/clusters) where you can see your new cluster.
 
 You should select the cluster stack and view the "Outputs" tab, as the next step will require a value from the outputs of this stack.
 
@@ -205,7 +205,7 @@ curl http://empir-publi-8p1lmmeypqd3-1841449678.us-east-1.elb.amazonaws.com/api/
 
 &nbsp;
 
-## 6. Tour the EC2 Container Service dashboard
+## 6. Tour the Elastic Container Service dashboard
 
 If you view the AWS console for ECS you will see an overview of your cluster:
 

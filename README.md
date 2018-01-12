@@ -12,7 +12,7 @@ This workshop will help you go from localhost to deployed on AWS three times, us
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
-- [EC2 Container Service](https://aws.amazon.com/ecs/)
+- [Elastic Container Service](https://aws.amazon.com/ecs/)
 - [AWS Fargate](https://aws.amazon.com/fargate/)
 
 For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages.
@@ -43,7 +43,7 @@ The external HTTP interface of the API has a basic spec:
 1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
 2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
 3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
-4. [Deploy API on EC2 Container Service](4%20-%20EC2%20Container%20Service/)
+4. [Deploy API on Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
 5. [Deploy API using AWS Fargate](5%20-%20AWS%20Fargate/)
 
 &nbsp;
@@ -56,11 +56,11 @@ A monolithic application behind a load balancer. All API route handling is done 
 
 ![elastic beanstalk](1%20-%20Development%20Environment/images/elastic-beanstalk-architecture.png)
 
-### [EC2 Container Service](4%20-%20EC2%20Container%20Service/) and [AWS Fargate](5%20-%20AWS%20Fargate/)
+### [Elastic Container Service](4%20-%20Elastic%20Container%20Service/) and [AWS Fargate](5%20-%20AWS%20Fargate/)
 
 Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers. Each docker container has a single process.
 
-![ec2 container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
+![elastic container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
 
 When the containers are deployed onto self managed EC2 hosts they are exposed on randomly assigned ports. When the containers are deployed into AWS Fargate each has its own unique IP address and exposes its service on a static port on that IP.
 
