@@ -8,7 +8,7 @@ But the next step is packaging your application up and running it on a server, o
 
 ![large deployment](1%20-%20Development%20Environment/images/deployment.png)
 
-This workshop will help you go from localhost to deployed on AWS three times, using three different services:
+This workshop will help you go from localhost to deployed on AWS four times, using four different deployment mechanisms:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
