@@ -32,20 +32,55 @@ curl -OL https://github.com/jpignata/fargate/releases/download/v0.2.1/fargate-0.
 sudo unzip fargate-0.2.1-linux-amd64.zip -d /usr/local/bin
 ```
 
+&nbsp;
+
+&nbsp;
+
 ## 3. Create a load balancer for your AWS Fargate deployment
 
 ```
 fargate lb create node-app --port 80
 ```
 
+![create load balancer](images/create-load-balancer.png)
+
+&nbsp;
+
+&nbsp;
+
 ## 4. Build and deploy
+
+Now its time to build and deploy the two services:
+
+First the characters service:
 
 ```
 cd characters
 fargate service create characters --lb node-app --port 80 --rule PATH=/api/characters*
+```
+
+And then the locations service:
+
+```
 cd ../locations
 fargate service create locations --lb node-app --port 80 --rule PATH=/api/locations*
 ```
+
+You will see output similar to this when deploying a service:
+
+![create service](images/create-service.png)
+
+As your Fargate services launch you can query their info using this command:
+
+```
+fargate service info characters
+```
+
+![service info](images/service-info.png)
+
+&nbsp;
+
+&nbsp;
 
 ## 5. Fetch load balancer info
 
@@ -59,14 +94,24 @@ You will see output similar to this:
 
 ![cloudformation outputs](images/load-balancer-info.png)
 
+&nbsp;
+
+&nbsp;
+
 ## 6. Test the API
 
-Using the DNS name from the load balancer make a request to the API as deployed in Fargate. For example:
+Using the DNS name from the load balancer make a request to the API as deployed in Fargate using `curl` or your browser. For example:
 
 ```
 curl node-app-1592151400.us-east-1.elb.amazonaws.com/api/characters
 curl node-app-1592151400.us-east-1.elb.amazonaws.com/api/locations
 ```
+
+![browser request](images/browser-request.png)
+
+&nbsp;
+
+&nbsp;
 
 ## 7. Scale a service
 
@@ -76,15 +121,25 @@ Right now the two Fargate services are deployed as single containers. With the F
 fargate service scale characters +2
 ```
 
+![service scale](images/service-scale.png)
+
+&nbsp;
+
+&nbsp;
+
 ## 8. Update a service
 
-You can redeploy a service by making a change to its code and then using the following command:
+You can redeploy a service by making a change to its code and then using the following command to redeploy the service.
 
 ```
-fargate servie update characters
+fargate service deploy characters
 ```
 
-## 9. Shut down the Fargate services
+&nbsp;
+
+&nbsp;
+
+## 9. Shut down & clean up
 
 Scale the Fargate services down to zero containers:
 
