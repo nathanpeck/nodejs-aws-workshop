@@ -51,11 +51,13 @@ A monolithic application behind a load balancer. All API route handling is done 
 
 ![elastic beanstalk](1%20-%20Development%20Environment/images/elastic-beanstalk-architecture.png)
 
-### [EC2 Container Service](4%20-%20EC2%20Container%20Service/)
+### [EC2 Container Service](4%20-%20EC2%20Container%20Service/) and [AWS Fargate](5%20-%20AWS%20Fargate/)
 
-Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers. Each docker container has a single process. Container ports are linked to randomly assigned external ports on the host instance:
+Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers. Each docker container has a single process.
 
 ![ec2 container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
+
+When the containers are deployed onto self managed EC2 hosts they are exposed on randomly assigned ports. When the containers are deployed into AWS Fargate each has its own unique IP address and exposes its service on a static port on that IP.
 
 ### [Lambda](3%20-%20Serverless%20Lambda/)
 
