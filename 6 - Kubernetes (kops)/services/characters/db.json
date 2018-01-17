@@ -1,0 +1,75 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Marceline Abadeer",
+      "gender": "female",
+      "species": [
+        "human",
+        "demon",
+        "vampire"
+      ],
+      "occupations": [
+        "queen"
+      ],
+      "location": 1
+    },
+    {
+      "id": 2,
+      "name": "Finn 'the Human' Mertens",
+      "gender": "male",
+      "species": [
+        "human"
+      ],
+      "occupations": [
+        "adventurer",
+        "hero"
+      ],
+      "location": 2
+    },
+    {
+      "id": 3,
+      "name": "Bonnibel Bubblegum",
+      "gender": "female",
+      "species": [
+        "candy elemental"
+      ],
+      "occupations": [
+        "princess",
+        "scientist"
+      ],
+      "location": 3
+    },
+    {
+      "id": 4,
+      "name": "Jake the Dog",
+      "gender": "male",
+      "species": [
+        "dog",
+        "shape-shifter"
+      ],
+      "occupations": [
+        "criminal",
+        "hero",
+        "adventurer",
+        "father"
+      ],
+      "location": 2
+    },
+    {
+      "id": 5,
+      "name": "BMO",
+      "gender": "genderless",
+      "species": [
+        "mo"
+      ],
+      "occupations": [
+        "video game console",
+        "computer",
+        "vcr",
+        "adventurer"
+      ],
+      "location": 2
+    }
+  ]
+}
