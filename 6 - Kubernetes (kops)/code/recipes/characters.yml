@@ -25,9 +25,8 @@ kind: Service
 metadata:
   name: characters-service
 spec:
-  ports:
-     -  port: 8081
-        protocol: TCP
   selector:
-    app: characters
-  type: ClusterIP
+    app: locations
+  ports:
+    - port: 8081
+      protocol: TCP

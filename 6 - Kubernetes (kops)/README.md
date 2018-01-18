@@ -222,7 +222,7 @@ docker push 209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1
 
 ## 9. Write deployment specification files:
 
-Modify the files at `services/locations.yaml` and `services/characters.yaml` to have the docker image URL from the last step. (including the tag). <TODO, add instructions on installing `nano` here, or instructions on how to use vim to edit file>
+Modify the files at `recipes/locations.yaml` and `recipes/characters.yaml` to have the docker image URL from the last step (including the image tag). <TODO, add instructions on installing `nano` here, or instructions on how to use vim to edit file>
 
 For example, change the `image` property to:
 

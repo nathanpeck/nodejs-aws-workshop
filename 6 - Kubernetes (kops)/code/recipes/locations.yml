@@ -25,9 +25,8 @@ kind: Service
 metadata:
   name: locations-service
 spec:
-  ports:
-     -  port: 8081
-        protocol: TCP
   selector:
     app: locations
-  type: ClusterIP
+  ports:
+    - port: 8081
+      protocol: TCP
