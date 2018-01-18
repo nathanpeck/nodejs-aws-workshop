@@ -258,12 +258,33 @@ You should see output similar to this:
 
 ![kubectl get deployments](images/kubectl-get-deployments.png)
 
+We also created services for the pods, which serve as proxies that
+will allow us to send traffic to the underlying pods wherever they may
+be:
+
+```
+kubectl get services
+```
+
+You should see output similar to this:
+
+![kubectl get services](images/kubectl-get-services.png)
+
 &nbsp;
 
 &nbsp;
 
 ## 11. Create a load balancer in front of your pods:
 
-Now that the pods are running on the cluster, we still need a way for traffic from the public to reach them. In order to do this we will use an Nginx container
+Now that the pods are running on the cluster, we still need a way for traffic from the public to reach them. In order to do this we will build an Nginx container that can route traffic to the containers, and then expose the Nginx to the public using a load balancer ingress.
+
+Build, push, and deploy the Nginx:
+
+```
+aws ecr create-repository --repository-name nginx-router --region us-east-1
+docker build -t nginx-router services/nginx/.
+docker tag nginx-router:latest <your repo url>:v1
+docker push <your repo url>:v1
+```
 
 
