@@ -278,13 +278,43 @@ You should see output similar to this:
 
 Now that the pods are running on the cluster, we still need a way for traffic from the public to reach them. In order to do this we will build an Nginx container that can route traffic to the containers, and then expose the Nginx to the public using a load balancer ingress.
 
-Build, push, and deploy the Nginx:
+__Build, push, and deploy the Nginx:__
 
 ```
 aws ecr create-repository --repository-name nginx-router --region us-east-1
 docker build -t nginx-router services/nginx/.
 docker tag nginx-router:latest <your repo url>:v1
 docker push <your repo url>:v1
+kubectl apply -f recipes/nginx.yml
 ```
 
+__Get the details of the load balancer:__
 
+```
+kubectl describe service nginx-router
+```
+
+You will see output like:
+
+```
+[ec2-user@ip-10-0-0-46 code]$ kubectl describe service nginx-router
+Name:                     nginx-router
+Namespace:                default
+Labels:                   <none>
+Annotations:              kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"nginx-router","namespace":"default"},"spec":{"ports":[{"port":80,"targetPort":...
+Selector:                 app=nginx-router
+Type:                     LoadBalancer
+IP:                       100.69.165.186
+LoadBalancer Ingress:     aa788cc64fc9911e7b8820e801320750-1559002290.us-east-1.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31419/TCP
+Endpoints:
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  1m    service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   1m    service-controller  Ensured load balancer
+```
