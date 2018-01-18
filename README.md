@@ -40,11 +40,19 @@ The external HTTP interface of the API has a basic spec:
 
 ## Instructions
 
-1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
+1. [Create a remote development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
 2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
 3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
 4. [Deploy API on Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
 5. [Deploy API using AWS Fargate](5%20-%20AWS%20Fargate/)
+
+If you are running at home or on your own personal dev machine you technically don't have to use the remote development machine from step #1 and could instead choose to setup the dev environment on your own machine. This workshop encourages the use of a remote dev machine to avoid variations in personal devices when giving the workshop to many attendees, and additionally to move the burden of package downloads and container uploads onto an AWS internet connection instead of the local wifi connection at the workshop venue.
+
+You will notice throughout this workshop that the instructions tend to
+focus on how to deploy architectures using infrastructure as code. So
+you will see a lot of commands that files from a `recipes` folder, for example.
+You should definitely check out the contents of these "recipes" to
+see more details about what is being deployed, and how it is configured.
 
 &nbsp;
 

@@ -165,7 +165,7 @@ Now authenticate with your repository so you have permission to push to it:
 - You are going to get a massive output starting with `docker login -u AWS -p ...`
 - Copy this entire output, paste, and run it in the terminal.
 
-You should see Login Succeeded
+You should see `Login Succeeded`
 
 &nbsp;
 
@@ -219,4 +219,51 @@ docker push 209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1
 &nbsp;
 
 &nbsp;
+
+## 9. Write deployment specification files:
+
+Modify the files at `services/locations.yaml` and `services/characters.yaml` to have the docker image URL from the last step. (including the tag). <TODO, add instructions on installing `nano` here, or instructions on how to use vim to edit file>
+
+For example, change the `image` property to:
+
+```
+spec:
+  containers:
+  - name: locations
+    image: 209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1
+    ports:
+    - containerPort: 8081
+```
+
+&nbsp;
+
+&nbsp;
+
+## 10. Apply the deployment to the Kubernetes cluster:
+
+Run the command to apply these two deployments to your Kubernetes cluster:
+
+```
+kubectl apply -f recipes/locations.yml
+kubectl apply -f recipes/characters.yml
+```
+
+Then verify that the deployments have applied:
+
+```
+kubectl get deployments
+```
+
+You should see output similar to this:
+
+![kubectl get deployments](images/kubectl-get-deployments.png)
+
+&nbsp;
+
+&nbsp;
+
+## 11. Create a load balancer in front of your pods:
+
+Now that the pods are running on the cluster, we still need a way for traffic from the public to reach them. In order to do this we will use an Nginx container
+
 
