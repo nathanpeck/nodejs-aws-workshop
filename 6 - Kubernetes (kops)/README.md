@@ -318,3 +318,78 @@ Events:
   Normal  EnsuringLoadBalancer  1m    service-controller  Ensuring load balancer
   Normal  EnsuredLoadBalancer   1m    service-controller  Ensured load balancer
 ```
+
+Make a note of the value listed for `LoadBalancer Ingress`. This is the DNS name that the application will be available to the public as.
+
+&nbsp;
+
+&nbsp;
+
+## 12. Test the service
+
+Make an HTTP request to the service on the DNS name from the last step:
+
+```
+curl http://aa788cc64fc9911e7b8820e801320750-1559002290.us-east-1.elb.amazonaws.com/api/characters
+curl http://aa788cc64fc9911e7b8820e801320750-1559002290.us-east-1.elb.amazonaws.com/api/locations
+```
+
+These two paths are each being served by their own container deployment in the Kubernetes cluster.
+
+&nbsp;
+
+&nbsp;
+
+## 13. Scale a service
+
+There are three pieces to this Kubernetes architecture that we can scale:
+
+- The NGINX router deployment
+- The `characters` deployment
+- The `locations` deployment
+
+Scaling a deployment is easy with the following command:
+
+```
+kubectl scale --replicas=3 deployments/characters-deployment
+```
+
+This will increase the number of `characters` containers to three, which you can verify using `kubectl get pods`:
+
+```
+characters-deployment-6c6846f98-m54bn   1/1       Running   0          38m
+characters-deployment-6c6846f98-p4r6x   1/1       Running   0          38m
+characters-deployment-6c6846f98-xcmld   1/1       Running   0          39s
+locations-deployment-76c6657869-9slws   1/1       Running   0          40m
+locations-deployment-76c6657869-zbkzz   1/1       Running   0          40m
+nginx-router-d4dd9c94c-jxtfw            1/1       Running   0          15m
+nginx-router-d4dd9c94c-wt7b5            1/1       Running   0          15m
+```
+
+You will now see three pods with the `characters` name, alongside the existing two for `locations` and `nginx-router`.
+
+&nbsp;
+
+&nbsp;
+
+## 14. Shutdown the cluster
+
+When you are done experimenting with your Kubernetes cluster you can destroy it by using kops to terminate it.
+
+```
+kops delete cluster --name nodejs-workshop.k8s.local
+```
+
+This command will list out the resources to be deleted. After you verify that you are deleting the right cluster you can repeat the command with an added `--yes` flag to accept the deletion.
+
+```
+kops delete cluster --name nodejs-workshop.k8s.local --yes
+```
+
+Finally delete the S3 bucket that you created earlier:
+
+```
+aws s3api delete-bucket \
+    --bucket nodejs-k8s-store \
+    --region us-east-1
+```
