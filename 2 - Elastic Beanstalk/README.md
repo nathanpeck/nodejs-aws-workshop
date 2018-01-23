@@ -1,3 +1,12 @@
+# Node.js deployed on AWS using Elastic Beanstalk
+
+![elastic beanstalk](images/elastic-beanstalk-architecture.png)
+
+In this workshop we will deploy a monolithic Node.js application that
+runs on two EC2 hosts. A load balancer will sit in front of the two hosts
+to distribute traffic across them. The deployment will be orchestrated
+by Elastic Beanstalk.
+
 ## 1. SSH into the development instance
 
 If you don't already have an SSH shell open on the development instance open one now:

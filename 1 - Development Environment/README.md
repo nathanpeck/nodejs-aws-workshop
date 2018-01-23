@@ -86,7 +86,7 @@ On the first connection you will need to type "yes" to trust the host, since it 
 Run the following commands on your development machine to setup the development tools needed to run this workshop:
 
 ```
-sudo yum install -y git unzip wget
+sudo yum install -y git unzip wget nano
 curl -O https://bootstrap.pypa.io/get-pip.py
 python get-pip.py --user
 pip install awscli --upgrade --user

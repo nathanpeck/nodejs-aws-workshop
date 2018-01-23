@@ -1,3 +1,9 @@
+# Node.js deploying on AWS using Kubernetes
+
+![kubernetes](images/kubernetes.png)
+
+In this workshop we will deploy two microservices as containers running in a Kubernetes cluster. Traffic will reach the containers through a Kubernetes Ingress with Nginx routing traffic to the two different services based on the path of the request.
+
 ## 1. Connect to your development machine
 
 If you don't already have an SSH session open, SSH to your development machine.
@@ -104,6 +110,12 @@ __Build the cluster:__
 kops update cluster ${NAME} --yes
 ```
 
+After kops finishes kicking off the cluster launch you will see output like this:
+
+```
+Cluster is starting.  It should be ready in a few minutes.
+```
+
 &nbsp;
 
 &nbsp;
@@ -116,11 +128,32 @@ Run the following command to check the state of the Kubernetes cluster:
 kops validate cluster
 ```
 
-If you just launched your cluster using `kops create` it is normal to see failure and error messages for several minutes while the instances start up and download and install their components. Eventually you will see a success message similar to this however:
+If you just launched your cluster using `kops create` it is normal to see a message similar to this:
 
-![cluster ready](images/cluster-ready.png)
+- `no such host`
+- `your masters are NOT ready`
+- `your nodes are NOT ready`
 
-We also need to check to make sure that `kubectl` is able to connect to the cluster:
+These are not fatal errors, they just mean the instances still need time to start up, download and install their components. Eventually you will see a success message similar to this:
+
+```
+Validating cluster nodejs-workshop.k8s.local
+
+INSTANCE GROUPS
+NAME                ROLE    MACHINETYPE MIN MAX SUBNETS
+master-us-east-1a   Master  m3.medium   1   1   us-east-1a
+nodes               Node    t2.medium   2   2   us-east-1a
+
+NODE STATUS
+NAME                            ROLE    READY
+ip-172-20-39-193.ec2.internal   master  True
+ip-172-20-40-154.ec2.internal   node    True
+ip-172-20-62-145.ec2.internal   node    True
+
+Your cluster nodejs-workshop.k8s.local is ready
+```
+
+This means that the Kubernets cluster is ready to use. We just need to check to make sure that `kubectl` is able to connect to the cluster:
 
 ```
 kubectl get nodes
@@ -128,13 +161,18 @@ kubectl get nodes
 
 You should see output similar to this:
 
-![kubectl get nodes](images/kubectl-get-nodes.png)
+```
+NAME                            STATUS    ROLES     AGE       VERSION
+ip-172-20-39-193.ec2.internal   Ready     master    3m        v1.8.6
+ip-172-20-40-154.ec2.internal   Ready     node      1m        v1.8.6
+ip-172-20-62-145.ec2.internal   Ready     node      1m        v1.8.6
+```
 
 &nbsp;
 
 &nbsp;
 
-## 7. Create a container registry for each service:
+## 7. Create a container registry for each service
 
 The container registry is going to store the docker container images for both microservices we will deploy:
 
@@ -171,7 +209,7 @@ You should see `Login Succeeded`
 
 &nbsp;
 
-## 8. Build your images and push them to your registries:
+## 8. Build your images and push them to your registries
 
  First build each service's container image:
 
@@ -220,11 +258,16 @@ docker push 209640446841.dkr.ecr.us-east-1.amazonaws.com/locations:v1
 
 &nbsp;
 
-## 9. Write deployment specification files:
+## 9. Modify deployment specification files
 
-Modify the files at `recipes/locations.yaml` and `recipes/characters.yaml` to have the docker image URL from the last step (including the image tag). <TODO, add instructions on installing `nano` here, or instructions on how to use vim to edit file>
+Modify the files at `recipes/locations.yml` and `recipes/characters.yml` to have the docker image URL from the last step (including the image tag).
 
-For example, change the `image` property to:
+Choose one of the following command line file editors to use:
+
+- `nano recipes/locations.yml` (Easier to use editor. Just edit file and then press Control + O to write the file to disk, and Control + X to exit.)
+- `vi recipes/locations.yml` (Advanced editor. Press `a` to enter insert mode, edit the file, then press Escape to exit edit mode. Type `:wq` to write the file to disk and quit.)
+
+Whichever editor you use you need to change the `image` property to the URI of your docker image as shown below:
 
 ```
 spec:
@@ -235,11 +278,13 @@ spec:
     - containerPort: 8081
 ```
 
-&nbsp;
+Repeat this for both the locations deployment definition file and the characters deployment definition, putting the appropriate image URL in each file.
 
 &nbsp;
 
-## 10. Apply the deployment to the Kubernetes cluster:
+&nbsp;
+
+## 10. Apply the deployments to the Kubernetes cluster
 
 Run the command to apply these two deployments to your Kubernetes cluster:
 
@@ -256,9 +301,13 @@ kubectl get deployments
 
 You should see output similar to this:
 
-![kubectl get deployments](images/kubectl-get-deployments.png)
+```
+NAME                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+characters-deployment   2         2         2            0           7s
+locations-deployment    2         2         2            2           7s
+```
 
-We also created services for the pods, which serve as proxies that
+We also just created services for the pods, which serve as proxies that
 will allow us to send traffic to the underlying pods wherever they may
 be:
 
@@ -268,23 +317,37 @@ kubectl get services
 
 You should see output similar to this:
 
-![kubectl get services](images/kubectl-get-services.png)
+```
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+characters-service   ClusterIP   100.64.79.235   <none>        8081/TCP   41s
+kubernetes           ClusterIP   100.64.0.1      <none>        443/TCP    3h
+locations-service    ClusterIP   100.64.78.26    <none>        8081/TCP   41s
+```
 
 &nbsp;
 
 &nbsp;
 
-## 11. Create a load balancer in front of your pods:
+## 11. Create a load balancer in front of your pods
 
 Now that the pods are running on the cluster, we still need a way for traffic from the public to reach them. In order to do this we will build an Nginx container that can route traffic to the containers, and then expose the Nginx to the public using a load balancer ingress.
 
-__Build, push, and deploy the Nginx:__
+__Build and push the Nginx image:__
 
 ```
 aws ecr create-repository --repository-name nginx-router --region us-east-1
 docker build -t nginx-router services/nginx/.
 docker tag nginx-router:latest <your repo url>:v1
 docker push <your repo url>:v1
+```
+
+__Modify the Nginx deployment file:__
+
+Use the editor of your choice to edit the file at `recipes/nginx.yml` to have the URL of the Nginx image, exactly as you did in step #9 for the `locations` and `characters` services.
+
+__Apply the deployment:__
+
+```
 kubectl apply -f recipes/nginx.yml
 ```
 
@@ -327,7 +390,7 @@ Make a note of the value listed for `LoadBalancer Ingress`. This is the DNS name
 
 ## 12. Test the service
 
-Make an HTTP request to the service on the DNS name from the last step:
+Make an HTTP request to the service on the DNS name from the last step. Note that it make take a minute or so before the load balancer ingress actually starts accepting traffic.
 
 ```
 curl http://aa788cc64fc9911e7b8820e801320750-1559002290.us-east-1.elb.amazonaws.com/api/characters
@@ -386,10 +449,18 @@ This command will list out the resources to be deleted. After you verify that yo
 kops delete cluster --name nodejs-workshop.k8s.local --yes
 ```
 
-Finally delete the S3 bucket that you created earlier:
+If you do not plan to relaunch this cluster you can also delete the S3 bucket that you created earlier:
 
 ```
 aws s3api delete-bucket \
     --bucket nodejs-k8s-store \
     --region us-east-1
+```
+
+And delete the ECR repositories that you created to store the microservice docker images:
+
+```
+aws ecr delete-repository --repository-name characters --force --region us-east-1
+aws ecr delete-repository --repository-name locations --force --region us-east-1
+aws ecr delete-repository --repository-name nginx-router --force --region us-east-1
 ```
