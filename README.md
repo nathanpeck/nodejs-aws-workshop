@@ -42,9 +42,9 @@ The external HTTP interface of the API has a basic spec:
 ## Instructions
 
 1. [Create a remote development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
-2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
-3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
-4. [Deploy API on Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
+2. [Deploy API using Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
+3. [Deploy API using AWS Lambda](3%20-%20Serverless%20Lambda/)
+4. [Deploy API using Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
 5. [Deploy API using AWS Fargate](5%20-%20AWS%20Fargate/)
 6. [Deploy API using Kubernetes with kops](6%20-%20Kubernetes%20(kops)/)
 
