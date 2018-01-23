@@ -10,6 +10,9 @@ In this workshop we will deploy two microservices as containers running in Amazo
 
 ## 1. Connect to your development machine
 
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
+
 If you don't already have an SSH session open, SSH to your development machine.
 
 ```

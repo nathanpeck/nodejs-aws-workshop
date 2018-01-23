@@ -13,10 +13,26 @@ by Elastic Beanstalk.
 
 ## 1. SSH into the development instance
 
-If you don't already have an SSH shell open on the development instance open one now:
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
+
+If you don't already have an SSH session open, SSH to your development machine.
 
 ```
-ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
+ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
+```
+
+If you haven't already done so clone the workshop code onto the dev machine:
+
+```
+cd ~
+git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
+```
+
+Then change your current working directory to the right directory for this section of the workshop:
+
+```
+cd ~/nodejs-aws-workshop/2\ -\ Elastic\ Beanstalk/code
 ```
 
 &nbsp;

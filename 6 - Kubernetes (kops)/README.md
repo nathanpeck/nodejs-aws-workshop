@@ -19,6 +19,13 @@ If you don't already have an SSH session open, SSH to your development machine.
 ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
 ```
 
+If you haven't already done so clone the workshop code onto the dev machine:
+
+```
+cd ~
+git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
+```
+
 Then change your current working directory to the project directory:
 
 ```
