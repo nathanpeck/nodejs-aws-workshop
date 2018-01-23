@@ -32,6 +32,12 @@ Then change your current working directory to the right directory for this secti
 cd ~/nodejs-aws-workshop/3\ -\ Serverless\ Lambda/code
 ```
 
+&nbsp;
+
+&nbsp;
+
+## 2. Install the Serverless framework
+
 Now install the Serverless framework on your dev machine:
 
 ```
@@ -42,7 +48,7 @@ npm install -g serverless
 
 &nbsp;
 
-## 2. Deploy the application
+## 3. Deploy the application
 
 Change your current working directory to the project directory then deploy using Serverless:
 
@@ -57,7 +63,7 @@ serverless deploy
 
 &nbsp;
 
-## 3. Try fetching one of the endpoints
+## 4. Try fetching one of the endpoints
 
 In the output from the previous deploy step you will see a list of the API routes that were setup. Try fetching one of them in your browser.
 
@@ -72,7 +78,7 @@ curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters/b
 
 &nbsp;
 
-## 4. Tour the AWS Lambda console
+## 5. Tour the AWS Lambda console
 
 Check out the AWS console to see a list of the lambda functions that were created by Serverless:
 
@@ -86,7 +92,7 @@ And to see how HTTP traffic gets to your Lambda functions you should check the [
 
 &nbsp;
 
-## 5. Try modifying a function
+## 6. Try modifying a function
 
 You can modify any function, and redeploy by once again running:
 
@@ -98,7 +104,7 @@ serverless deploy
 
 &nbsp;
 
-## 6. Cleanup your environment
+## 7. Cleanup your environment
 
 Destroy all created resources by using
 
