@@ -8,14 +8,15 @@ But the next step is packaging your application up and running it on a server, o
 
 ![large deployment](1%20-%20Development%20Environment/images/deployment.png)
 
-This workshop will help you go from localhost to deployed on AWS four times, using four different deployment mechanisms:
+This workshop will help you take the same sample app from localhost to deployed on AWS multiple times, using a variety of different deployment mechanisms:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
 - [Elastic Container Service](https://aws.amazon.com/ecs/)
 - [AWS Fargate](https://aws.amazon.com/fargate/)
+- [Kubernetes](https://kubernetes.io/) and [kops](https://github.com/kubernetes/kops)
 
-For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages.
+For this workshop the sample application code is written in Node.js but the same Amazon services can be applied to other runtime languages.
 
 ## Sample Application
 
