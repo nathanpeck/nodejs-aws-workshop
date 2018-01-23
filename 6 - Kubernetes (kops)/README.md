@@ -29,7 +29,7 @@ git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
 Then change your current working directory to the project directory:
 
 ```
-cd ~/nodejs-aws-workshop/5\ -\ Kubernetes\ \(kops\)/code
+cd ~/nodejs-aws-workshop/6\ -\ Kubernetes\ \(kops\)/code
 ```
 
 &nbsp;

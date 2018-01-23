@@ -2,10 +2,7 @@
 
 ![elastic beanstalk](images/elastic-beanstalk-architecture.png)
 
-In this workshop we will deploy a monolithic Node.js application that
-runs on two EC2 hosts. A load balancer will sit in front of the two hosts
-to distribute traffic across them. The deployment will be orchestrated
-by Elastic Beanstalk.
+A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes sharing a single port is used in order to fully utilize all cores of a multicore EC2 instance.
 
 &nbsp;
 
