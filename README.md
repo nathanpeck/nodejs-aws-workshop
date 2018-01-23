@@ -16,7 +16,7 @@ This workshop will help you take the same sample app from localhost to deployed 
 - [AWS Fargate](https://aws.amazon.com/fargate/)
 - [Kubernetes](https://kubernetes.io/) + [kops](https://github.com/kubernetes/kops) + [kubectl](https://kubernetes.io/docs/reference/generated/kubectl/kubectl/)
 
-For this workshop the sample application code is written in Node.js but the same Amazon services can be applied to other runtime languages.
+For this workshop the sample application code is written in Node.js but the same deployment mechanisms can be applied to other runtime languages.
 
 ## Sample Application
 
