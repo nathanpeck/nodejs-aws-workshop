@@ -4,6 +4,10 @@
 
 In this workshop we will deploy two microservices as containers running in a cluster of EC2 hosts orchestrated by Elastic Container Service. Traffic will reach the containers through an AWS Application Load Balancer which routes traffic to the two different services based on the path of the request.
 
+&nbsp;
+
+&nbsp;
+
 ## 1. Connect to your development machine
 
 If you don't already have an SSH session open, SSH to your development machine.

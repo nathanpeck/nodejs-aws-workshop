@@ -7,6 +7,10 @@ runs on two EC2 hosts. A load balancer will sit in front of the two hosts
 to distribute traffic across them. The deployment will be orchestrated
 by Elastic Beanstalk.
 
+&nbsp;
+
+&nbsp;
+
 ## 1. SSH into the development instance
 
 If you don't already have an SSH shell open on the development instance open one now:

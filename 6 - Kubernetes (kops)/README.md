@@ -4,6 +4,10 @@
 
 In this workshop we will deploy two microservices as containers running in a Kubernetes cluster. Traffic will reach the containers through a Kubernetes Ingress with Nginx routing traffic to the two different services based on the path of the request.
 
+&nbsp;
+
+&nbsp;
+
 ## 1. Connect to your development machine
 
 If you don't already have an SSH session open, SSH to your development machine.

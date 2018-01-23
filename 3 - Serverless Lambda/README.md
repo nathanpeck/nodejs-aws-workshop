@@ -4,6 +4,10 @@
 
 In this workshop we will deploy a Node.js API where each API endpoint is powered by a Lambda function. Web traffic reaches the Lambda functions via an AWS API Gateway. The entire architecture is setup and deployed using the [Serverless](https://serverless.com/) framework.
 
+&nbsp;
+
+&nbsp;
+
 ## 1. Install serverless on your dev machine
 
 If don't already have an SSH session open, SSH into your dev machine:
