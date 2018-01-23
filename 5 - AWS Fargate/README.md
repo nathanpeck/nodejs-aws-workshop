@@ -1,4 +1,17 @@
+# Node.js deploying on AWS using Amazon Fargate
+
+![ecs architecture](images/ecs-architecture.png)
+
+In this workshop we will deploy two microservices as containers running in Amazon Fargate orchestrated by Elastic Container Service. Traffic will reach the containers through an AWS Application Load Balancer which routes traffic to the two different services based on the path of the request.
+
+&nbsp;
+
+&nbsp;
+
 ## 1. Connect to your development machine
+
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
 
 If you don't already have an SSH session open, SSH to your development machine.
 

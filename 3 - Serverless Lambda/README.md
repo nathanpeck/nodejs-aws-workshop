@@ -1,10 +1,42 @@
+# Node.js deployed on AWS using Serverless + Lambda
+
+![lambda](images/lambda-architecture.png)
+
+In this workshop we will deploy a Node.js API where each API endpoint is powered by a Lambda function. Web traffic reaches the Lambda functions via an AWS API Gateway. The entire architecture is setup and deployed using the [Serverless](https://serverless.com/) framework.
+
+&nbsp;
+
+&nbsp;
+
 ## 1. Install serverless on your dev machine
 
-If don't already have an SSH session open, SSH into your dev machine:
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
+
+If you don't already have an SSH session open, SSH to your development machine.
 
 ```
 ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
 ```
+
+If you haven't already done so clone the workshop code onto the dev machine:
+
+```
+cd ~
+git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
+```
+
+Then change your current working directory to the right directory for this section of the workshop:
+
+```
+cd ~/nodejs-aws-workshop/3\ -\ Serverless\ Lambda/code
+```
+
+&nbsp;
+
+&nbsp;
+
+## 2. Install the Serverless framework
 
 Now install the Serverless framework on your dev machine:
 
@@ -16,7 +48,7 @@ npm install -g serverless
 
 &nbsp;
 
-## 2. Deploy the application
+## 3. Deploy the application
 
 Change your current working directory to the project directory then deploy using Serverless:
 
@@ -31,7 +63,7 @@ serverless deploy
 
 &nbsp;
 
-## 3. Try fetching one of the endpoints
+## 4. Try fetching one of the endpoints
 
 In the output from the previous deploy step you will see a list of the API routes that were setup. Try fetching one of them in your browser.
 
@@ -46,7 +78,7 @@ curl https://dvlc67ufq7.execute-api.us-east-1.amazonaws.com/dev/api/characters/b
 
 &nbsp;
 
-## 4. Tour the AWS Lambda console
+## 5. Tour the AWS Lambda console
 
 Check out the AWS console to see a list of the lambda functions that were created by Serverless:
 
@@ -60,7 +92,7 @@ And to see how HTTP traffic gets to your Lambda functions you should check the [
 
 &nbsp;
 
-## 5. Try modifying a function
+## 6. Try modifying a function
 
 You can modify any function, and redeploy by once again running:
 
@@ -72,7 +104,7 @@ serverless deploy
 
 &nbsp;
 
-## 6. Cleanup your environment
+## 7. Cleanup your environment
 
 Destroy all created resources by using
 

@@ -1,9 +1,29 @@
+# Node.js deploying on AWS using Elastic Container Service
+
+![ecs architecture](images/ecs-architecture.png)
+
+In this workshop we will deploy two microservices as containers running in a cluster of EC2 hosts orchestrated by Elastic Container Service. Traffic will reach the containers through an AWS Application Load Balancer which routes traffic to the two different services based on the path of the request.
+
+&nbsp;
+
+&nbsp;
+
 ## 1. Connect to your development machine
+
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
 
 If you don't already have an SSH session open, SSH to your development machine.
 
 ```
 ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
+```
+
+If you haven't already done so clone the workshop code onto the dev machine:
+
+```
+cd ~
+git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
 ```
 
 Then change your current working directory to the project directory:

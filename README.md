@@ -8,14 +8,15 @@ But the next step is packaging your application up and running it on a server, o
 
 ![large deployment](1%20-%20Development%20Environment/images/deployment.png)
 
-This workshop will help you go from localhost to deployed on AWS four times, using four different deployment mechanisms:
+This workshop will help you take the same sample app from localhost to deployed on AWS multiple times, using a variety of different deployment mechanisms:
 
 - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 - [AWS Lambda](https://aws.amazon.com/lambda/) + [Serverless](https://serverless.com/)
 - [Elastic Container Service](https://aws.amazon.com/ecs/)
 - [AWS Fargate](https://aws.amazon.com/fargate/)
+- [Kubernetes](https://kubernetes.io/) + [kops](https://github.com/kubernetes/kops) + [kubectl](https://kubernetes.io/docs/reference/generated/kubectl/kubectl/)
 
-For this workshop the sample code is written in Node.js but the same Amazon services can be applied to other runtime languages.
+For this workshop the sample application code is written in Node.js but the same deployment mechanisms can be applied to other runtime languages.
 
 ## Sample Application
 
@@ -40,32 +41,17 @@ The external HTTP interface of the API has a basic spec:
 
 ## Instructions
 
-1. [Create a development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
-2. [Deploy API on Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
-3. [Deploy API on AWS Lambda](3%20-%20Serverless%20Lambda/)
-4. [Deploy API on Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
+1. [Create a remote development machine](1%20-%20Development%20Environment/) to use for the rest of workshop
+2. [Deploy API using Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
+3. [Deploy API using AWS Lambda](3%20-%20Serverless%20Lambda/)
+4. [Deploy API using Elastic Container Service](4%20-%20Elastic%20Container%20Service/)
 5. [Deploy API using AWS Fargate](5%20-%20AWS%20Fargate/)
+6. [Deploy API using Kubernetes with kops](6%20-%20Kubernetes%20(kops)/)
 
-&nbsp;
+If you are running at home or on your own personal dev machine you technically don't have to use the remote development machine from step #1 and could instead choose to setup the dev environment on your own machine. This workshop encourages the use of a remote dev machine to avoid variations in personal devices when giving the workshop to many attendees, and additionally to move the burden of package downloads and container uploads onto an AWS internet connection instead of the local wifi connection at the workshop venue.
 
-## Architecture Diagrams
-
-### [Elastic Beanstalk](2%20-%20Elastic%20Beanstalk/)
-
-A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes sharing a single port is used in order to fully utilize all cores of a multicore EC2 Instance:
-
-![elastic beanstalk](1%20-%20Development%20Environment/images/elastic-beanstalk-architecture.png)
-
-### [Elastic Container Service](4%20-%20Elastic%20Container%20Service/) and [AWS Fargate](5%20-%20AWS%20Fargate/)
-
-Microservices run in docker containers behind an application load balancer. The API is split into a `characters` and `locations` service, and the application load balancer routes the appropriate API traffic to the approriate docker containers. Each docker container has a single process.
-
-![elastic container service](1%20-%20Development%20Environment/images/ecs-architecture.png)
-
-When the containers are deployed onto self managed EC2 hosts they are exposed on randomly assigned ports. When the containers are deployed into AWS Fargate each has its own unique IP address and exposes its service on a static port on that IP.
-
-### [Lambda](3%20-%20Serverless%20Lambda/)
-
-Nanoservices. Each API endpoint is served by its own AWS Lambda function. An API gateway sits in front of all the Lambdas and routes requests to each function:
-
-![lambda](1%20-%20Development%20Environment/images/lambda-architecture.png)
+You will notice throughout this workshop that the instructions tend to
+focus on how to deploy architectures using infrastructure as code. So
+you will see a lot of commands that files from a `recipes` folder, for example.
+You should definitely check out the contents of these "recipes" to
+see more details about what is being deployed, and how it is configured.

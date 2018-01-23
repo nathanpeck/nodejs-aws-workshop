@@ -1,0 +1,32 @@
+# Deploy the pods
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: characters-deployment
+spec:
+  selector:
+    matchLabels:
+      app: characters
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: characters
+    spec:
+      containers:
+      - name: characters
+        image: <your characters image URL goes here>
+        ports:
+        - containerPort: 8081
+---
+# This service is used to expose the pods on a port
+apiVersion: v1
+kind: Service
+metadata:
+  name: characters-service
+spec:
+  selector:
+    app: characters
+  ports:
+    - port: 8081
+      protocol: TCP

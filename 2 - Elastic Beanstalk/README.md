@@ -1,30 +1,42 @@
+# Node.js deployed on AWS using Elastic Beanstalk
+
+![elastic beanstalk](images/elastic-beanstalk-architecture.png)
+
+A monolithic application behind a load balancer. All API route handling is done within the server process. A cluster of Node.js processes sharing a single port is used in order to fully utilize all cores of a multicore EC2 instance.
+
+&nbsp;
+
+&nbsp;
+
 ## 1. SSH into the development instance
 
-If you don't already have an SSH shell open on the development instance open one now:
+If you have not done so already create [a development machine on AWS](../1%20-%20Development%20Environment) to do this
+workshop.
+
+If you don't already have an SSH session open, SSH to your development machine.
 
 ```
-ssh -i ~/.ssh/<your key name>.pem ec2-user@<your development instance ip>
+ssh -i ~/.ssh/<your key>.pem ec2-user@<your dev machine ip address>
 ```
 
-&nbsp;
-
-&nbsp;
-
-## 2. Clone the workshop repository
-
-Clone the workshop repository using its public endpoint, then switch your current working directory to the elastic beanstalk code directory:
+If you haven't already done so clone the workshop code onto the dev machine:
 
 ```
 cd ~
 git clone https://github.com/nathanpeck/nodejs-aws-workshop.git
-cd nodejs-aws-workshop/2\ -\ Elastic\ Beanstalk/code
+```
+
+Then change your current working directory to the right directory for this section of the workshop:
+
+```
+cd ~/nodejs-aws-workshop/2\ -\ Elastic\ Beanstalk/code
 ```
 
 &nbsp;
 
 &nbsp;
 
-## 3. Install the Elastic Beanstalk command line tool
+## 2. Install the Elastic Beanstalk command line tool
 
 Now we will use Python PIP to install the Elastic Beanstalk command line tool. This tool will give us a command line wizard that will help detect details of our project, and automatically deploy it on AWS:
 
@@ -36,7 +48,7 @@ pip install awsebcli --upgrade --user
 
 &nbsp;
 
-## 4. Initialize an Elastic Beanstalk application in the code directory:
+## 3. Initialize an Elastic Beanstalk application in the code directory:
 
 Use the following command to start a new Elastic Beanstalk application in the code directory:
 
@@ -56,7 +68,7 @@ The command line tool will automatically detect that this is a Node.js applicati
 
 &nbsp;
 
-## 5. Launch an environment for your application:
+## 4. Launch an environment for your application:
 
 Use the following command to launch the application your initialized on your account:
 
@@ -74,7 +86,7 @@ Note that it will take a few minutes to launch your first environment, since thi
 
 &nbsp;
 
-## 6. Verify that your environment is up and running:
+## 5. Verify that your environment is up and running:
 
 After the application completes deploying you can access your environment using the URL that is listed in the [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/application/overview?applicationName=nodejs-workshop):
 
@@ -94,7 +106,7 @@ Or you can just enter the URL into your browser to check it:
 
 &nbsp;
 
-## 7. Deploy a new version of the application:
+## 6. Deploy a new version of the application:
 
 You can make any changes that you want to the application, and then roll them out using the following command:
 
@@ -108,7 +120,7 @@ Note that for any code changes to be reflected when the project being deployed i
 
 &nbsp;
 
-## 8. Shutdown the application
+## 7. Shutdown the application
 
 Whe you are done experimenting with Elastic Beanstalk you can shutdown your application. First choose "Terminate Application" from the action menu on your environment:
 

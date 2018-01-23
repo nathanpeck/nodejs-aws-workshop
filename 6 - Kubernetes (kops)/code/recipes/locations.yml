@@ -1,0 +1,32 @@
+# Deploy the pods
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: locations-deployment
+spec:
+  selector:
+    matchLabels:
+      app: locations
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: locations
+    spec:
+      containers:
+      - name: locations
+        image: <your locations image URL goes here>
+        ports:
+        - containerPort: 8081
+---
+# This service is used to expose the pods on a port
+apiVersion: v1
+kind: Service
+metadata:
+  name: locations-service
+spec:
+  selector:
+    app: locations
+  ports:
+    - port: 8081
+      protocol: TCP
