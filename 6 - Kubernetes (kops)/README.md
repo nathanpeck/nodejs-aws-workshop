@@ -69,7 +69,7 @@ kubectl version
 
 ## 3. Create an S3 bucket
 
-`kops` uses an S3 bucket as a source of truth about the state and configuration of your Kubernetes cluster, so we must create the cluster for it to use:
+`kops` uses an S3 bucket as a source of truth about the state and configuration of your Kubernetes cluster:
 
 ```
 aws s3api create-bucket \
