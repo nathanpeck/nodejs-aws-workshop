@@ -1,3 +1,7 @@
+# Create a development machine on AWS
+
+This workshop module will help you launch a development machine as an EC2 instance on AWS. We will SSH into this machine to use it for the rest of the workshop. The reason for setting up a remote machine and using it via SSH instead of installing all dependencies on your personal machine is so that the workshop can be run even if the workshop venue's wifi is over-burdened, or if your machine already has dependencies that conflict with the dependencies we need to install.
+
 ## 1. Create an SSH Key
 
 First, you'll need to select a region. I recommend using `us-east-1` (North Virginia) since this region will be referenced throughout the rest of the workshop. You can change your region by using the drop down just to the left of the "Support" menu in the top menubar:
