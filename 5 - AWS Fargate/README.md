@@ -1,4 +1,4 @@
-# Node.js deploying on AWS using Amazon Fargate
+# Node.js deployed on AWS using Amazon Fargate
 
 ![ecs architecture](images/ecs-architecture.png)
 
