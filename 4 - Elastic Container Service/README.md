@@ -1,4 +1,4 @@
-# Node.js deploying on AWS using Elastic Container Service
+# Node.js deployed on AWS using Elastic Container Service
 
 ![ecs architecture](images/ecs-architecture.png)
 
